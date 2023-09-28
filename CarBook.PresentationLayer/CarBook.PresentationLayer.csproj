@@ -6,4 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarBook.BusinessLayer\CarBook.BusinessLayer.csproj" />
+    <ProjectReference Include="..\CarBook.DataAccessLayer\CarBook.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>

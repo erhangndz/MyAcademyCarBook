@@ -20,5 +20,8 @@ namespace CarBook.EntityLayer.Concrete
         public int km { get; set; }
         public byte PersonCount { get; set; }
         public bool Status { get; set; }
+        public List<Price> Prices { get; set; }
+        public int CarStatusID { get; set; }
+        public CarStatus CarStatus { get; set; }
     }
 }

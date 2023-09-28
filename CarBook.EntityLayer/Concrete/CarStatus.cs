@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace CarBook.EntityLayer.Concrete
 {
-    public class Brand
+    public class CarStatus
     {
-        public int BrandID { get; set; }
-        public string BrandName { get; set; }
-        public bool Status { get; set; }
+        public int CarStatusID { get; set; }
+        public string StatusName { get; set; }
         public List<Car> Cars { get; set; }
     }
 }
-
