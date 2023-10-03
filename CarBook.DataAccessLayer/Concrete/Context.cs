@@ -15,8 +15,6 @@ namespace CarBook.DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=ERHAN\\SQLEXPRESS;database=DbCarBook;integrated security=true");
-
-
         }
 
         public DbSet<Brand> Brands { get; set; }
