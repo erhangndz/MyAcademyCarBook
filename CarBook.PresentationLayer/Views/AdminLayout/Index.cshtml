@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CarBook | Admin Paneli</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/sidebar-09/css/style.css">
+</head>
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="custom-menu">
+                <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                </button>
+            </div>
+            <div class="img bg-wrap text-center py-4" style="background-image: url(/sidebar-09/images/bg_1.jpg);">
+                <div class="user-logo">
+                    <div class="img" style="background-image: url(https://i.hizliresim.com/lvn4opl.png);"></div>
+                    <h3>Ali Yıldız</h3>
+                </div>
+            </div>
+            <ul class="list-unstyled components mb-5">
+                <li class="active">
+                    <a href="#"><span class="fa fa-home mr-3"></span> Dashboard</a>
+                </li>
+               
+                <li>
+                    <a href="/Brand/Index"><span class="fa fa-gift mr-3"></span> Markalar</a>
+                </li>
+                <li>
+                    <a href="/Car/Index"><span class="fa fa-trophy mr-3"></span>Arabalar</a>
+                </li>
+                
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+           @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/sidebar-09/js/jquery.min.js"></script>
+    <script src="~/sidebar-09/js/popper.js"></script>
+    <script src="~/sidebar-09/js/bootstrap.min.js"></script>
+    <script src="~/sidebar-09/js/main.js"></script>
+</body>
+</html>

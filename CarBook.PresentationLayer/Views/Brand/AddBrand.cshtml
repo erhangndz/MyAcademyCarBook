@@ -1,0 +1,15 @@
+﻿@using CarBook.EntityLayer.Concrete;
+@model Brand
+@{
+    ViewData["Title"] = "AddBrand";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Marka Ekle</h1>
+
+<form method="post">
+    <label>Marka Adı</label>
+    <input type="text" asp-for="BrandName" class="form-control" style="border:2px solid #2222" placeholder="Marka Adı" required />
+    <br />
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

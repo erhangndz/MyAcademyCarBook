@@ -17,6 +17,8 @@
   <ItemGroup>
     <ProjectReference Include="..\CarBook.BusinessLayer\CarBook.BusinessLayer.csproj" />
     <ProjectReference Include="..\CarBook.DataAccessLayer\CarBook.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\CarBook.DtoLayer\CarBook.DtoLayer.csproj" />
+    <ProjectReference Include="..\CarBook.EntityLayer\CarBook.EntityLayer.csproj" />
   </ItemGroup>
 
 </Project>
