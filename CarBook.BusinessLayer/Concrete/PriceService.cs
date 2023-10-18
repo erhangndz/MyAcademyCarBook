@@ -14,17 +14,19 @@ namespace CarBook.BusinessLayer.Concrete
     public class PriceService : IPriceService
     {
         private readonly IGenericDal<Price> _priceDal;
+        private readonly Context _context;
 
-        public PriceService(IGenericDal<Price> priceDal)
+        public PriceService(IGenericDal<Price> priceDal, Context context)
         {
             _priceDal = priceDal;
+            _context = context;
         }
 
         public List<Price> GetAll()
         {
-            using var context = new Context();
+           
             
-           return context.Prices.Include(x=>x.CarID).ToList();
+           return _context.Prices.Include(x=>x.CarID).ToList();
                 
             
         }

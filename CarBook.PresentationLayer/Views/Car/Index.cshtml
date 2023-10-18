@@ -1,0 +1,68 @@
+﻿@using CarBook.EntityLayer.Concrete;
+@model List<Car>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<h1>Arabalar</h1>
+@{
+    int count = 0;
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Kategori</th>
+       
+            <th>Vites Türü</th>
+            <th>Yıl</th>
+            <th>Araba Durumu</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.Brand.BrandName</td>
+                <td>@item.Model</td>
+                <td>@item.Category.CategoryName</td>
+                
+                <td>@item.Gear</td>
+                <td>@item.Year</td>
+                <td>@item.CarStatus.StatusName</td>
+                <td>
+                    <button onclick="deleteCar(@item.CarID)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdateCar" asp-route-id="@item.CarID" class="btn btn-outline-info">Düzenle</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    <a href="/Brand/AddBrand" class="btn btn-outline-dark">Yeni Marka Ekle</a>
+</div>
+
+<script>
+    function deleteCar(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Car/DeleteCar?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>
+

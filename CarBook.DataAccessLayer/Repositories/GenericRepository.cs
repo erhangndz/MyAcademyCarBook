@@ -10,34 +10,40 @@ namespace CarBook.DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        Context context = new Context();
+        private readonly Context _context;
+
+        public GenericRepository(Context context)
+        {
+            _context = context;
+        }
+
         public void Delete(int id)
         {
-            var values = context.Set<T>().Find(id);
-            context.Remove(values);
-            context.SaveChanges();
+            var values = _context.Set<T>().Find(id);
+            _context.Remove(values);
+            _context.SaveChanges();
         }
 
         public T GetByID(int id)
         {
-            return context.Set<T>().Find(id);
+            return _context.Set<T>().Find(id);
         }
 
         public List<T> GetList()
         {
-           return context.Set<T>().ToList();
+           return _context.Set<T>().ToList();
         }
 
         public void Insert(T entity)
         {
-            context.Set<T>().Add(entity); 
-            context.SaveChanges();
+            _context.Set<T>().Add(entity); 
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
         {
-           context.Set<T>().Update(entity); 
-            context.SaveChanges();
+           _context.Set<T>().Update(entity); 
+            _context.SaveChanges();
         }
     }
 }

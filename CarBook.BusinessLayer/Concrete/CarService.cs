@@ -14,10 +14,12 @@ namespace CarBook.BusinessLayer.Concrete
     public class CarService : ICarService
     {
         private readonly IGenericDal<Car> _carDal;
+        private readonly Context _context;
 
-        public CarService(IGenericDal<Car> carDal)
+        public CarService(IGenericDal<Car> carDal, Context context)
         {
             _carDal = carDal;
+            _context = context;
         }
 
         public void TDelete(int id)
@@ -27,8 +29,8 @@ namespace CarBook.BusinessLayer.Concrete
 
         public List<Car> TGetAll()
         {
-            using var context = new Context();
-          return  context.Cars.Include(x=>x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
+           
+          return  _context.Cars.Include(x=>x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
 
         }
 
