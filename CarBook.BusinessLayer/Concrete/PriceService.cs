@@ -26,7 +26,7 @@ namespace CarBook.BusinessLayer.Concrete
         {
            
             
-           return _context.Prices.Include(x=>x.CarID).ToList();
+           return _context.Prices.Include(x=>x.Car).ThenInclude(x=>x.Brand).ToList();
                 
             
         }

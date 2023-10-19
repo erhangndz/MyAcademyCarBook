@@ -28,10 +28,8 @@ namespace CarBook.BusinessLayer.Concrete
         }
 
         public List<Car> TGetAll()
-        {
-           
+        {         
           return  _context.Cars.Include(x=>x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
-
         }
 
         public Car TGetByID(int id)

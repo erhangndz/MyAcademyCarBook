@@ -1,4 +1,4 @@
-﻿@model List<Car>
+﻿@model List<Price>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -6,7 +6,7 @@
 
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<h1>Arabalar</h1>
+<h1>Fiyat Listesi</h1>
 @{
     int count = 0;
 }
@@ -14,12 +14,9 @@
     <table class="table table-hover">
         <tr>
             <th>#</th>
-            <th>Marka</th>
-            <th>Model</th>
-            <th>Kategori</th>
-            <th>Vites Türü</th>
-            <th>Yıl</th>
-            <th>Araba Durumu</th>
+            <th>Araç</th>
+            <th>Süre</th>
+            <th>Fiyat</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -27,26 +24,24 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.Brand.BrandName</td>
-                <td>@item.Model</td>
-                <td>@item.Category.CategoryName</td>
-                <td>@item.Gear</td>
-                <td>@item.Year</td>
-                <td>@item.CarStatus.StatusName</td>
+                <td>@item.Car.Brand.BrandName @item.Car.Model</td>
+                <td>@item.PriceType</td>
+                <td>@item.PriceValue ₺</td>
                 <td>
-                    <button onclick="deleteCar(@item.CarID)" type="submit" class="btn btn-outline-danger">Sil</button>
-                    <a asp-action="UpdateCar" asp-route-id="@item.CarID" class="btn btn-outline-info">Düzenle</a>
+                    <button onclick="deletePrice(@item.PriceID)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdatePrice" asp-route-id="@item.PriceID" class="btn btn-outline-info">Düzenle</a>
+                    
 
                 </td>
             </tr>
         }
     </table>
     <br />
-    <a href="/Brand/AddBrand" class="btn btn-outline-dark">Yeni Marka Ekle</a>
+    <a href="/Price/CreatePrice" class="btn btn-outline-dark">Yeni Fiyat Ekle</a>
 </div>
 
 <script>
-    function deleteCar(id) {
+    function deletePrice(id) {
         Swal.fire({
 
             title: 'Silmek istediğinize emin misiniz?',
@@ -57,9 +52,11 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Car/DeleteCar?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Price/DeletePrice?id=" + id; // Yönlendirilecek URL'yi buraya yazın
             }
         });
     }
 </script>
+
+
 
