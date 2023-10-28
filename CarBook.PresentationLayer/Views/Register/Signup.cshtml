@@ -1,0 +1,132 @@
+﻿@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+   
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/colorlib-regform-8/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/colorlib-regform-8/css/style.css">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="post" id="signup-form" class="signup-form">
+                        <h2 class="form-title">Hesap Oluşturun</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" asp-for="NameSurname" id="name" placeholder="Adınız Soyadınız" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" asp-for="Email" id="email" placeholder="Email Adresiniz" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" asp-for="UserName" id="username" placeholder="Kullanıcı Adınız" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" asp-for="Password" id="password" placeholder="Şifreniz" />
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" asp-for="ConfirmPassword" id="re_password" placeholder="Şifreyi Tekrar Girin" />
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span><a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="term-service">Hizmet şartlarını </a> okudum kabul ediyorum.</label>
+                        </div>
+                        <div>
+                            <p class="text-danger">
+                                @Html.ValidationSummary()
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Kayıt Ol" />
+                        </div>
+                    </form>
+                    <p class="loginhere">
+                       Zaten hesabınız var mı? <a href="#" class="loginhere-link">Giriş Yapın</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/colorlib-regform-8/vendor/jquery/jquery.min.js"></script>
+    <script src="~/colorlib-regform-8/js/main.js"></script>
+ 
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <!-- Button trigger modal -->
+   
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">CarBook Hizmet Şartları</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    Sevgili ziyaretçimiz, lütfen https://carbook.com web sitemizi ziyaret etmeden önce işbu kullanım koşulları sözleşmesini dikkatlice okuyunuz. Siteye erişiminiz tamamen bu sözleşmeyi kabulünüze ve bu sözleşme ile belirlenen şartlara uymanıza bağlıdır. Şayet bu sözleşmede yazan herhangi bir koşulu kabul etmiyorsanız, lütfen siteye erişiminizi sonlandırınız. Siteye erişiminizi sürdürdüğünüz takdirde, koşulsuz ve kısıtlamasız olarak, işbu sözleşme metninin tamamını kabul ettiğinizin, tarafımızca varsayılacağını lütfen unutmayınız.
+                    </p>
+                    <p>
+                    https://carbook.com web sitesi Şirket Adı tarafından yönetilmekte olup, bundan sonra CarBook olarak anılacaktır. İşbu siteye ilişkin Kullanım Koşulları, yayınlanmakla yürürlüğe girer. Değişiklik yapma hakkı, tek taraflı olarak CarBook'ye aittir ve CarBook üzerinden güncel olarak paylaşılacak olan bu değişiklikleri, tüm kullanıcılarımız baştan kabul etmiş sayılır.
+                    </p>
+                    <p>
+                    <strong>Gizlilik</strong>
+                    Gizlilik, ayrı bir sayfada, kişisel verilerinizin tarafımızca işlenmesinin esaslarını düzenlemek üzere mevcuttur. CarBook'yi kullandığınız takdirde, bu verilerin işlenmesinin gizlilik politikasına uygun olarak gerçekleştiğini kabul edersiniz.
+                    </p>
+                    <p>
+                        <strong>
+                            Hizmet Kapsamı</strong>
+                    Şirket Adı olarak, sunacağımız hizmetlerin kapsamını ve niteliğini, yasalar çerçevesinde belirlemekte tamamen serbest olup; hizmetlere ilişkin yapacağımız değişiklikler, CarBook'de yayınlanmakla yürürlüğe girmiş sayılacaktır.
+                    </p>
+                    <p>
+                        <strong>Telif Hakları</strong>
+                    CarBook'de yayınlanan tüm metin, kod, grafikler, logolar, resimler, ses dosyaları ve kullanılan yazılımın sahibi (bundan böyle ve daha sonra "içerik" olarak anılacaktır) Şirket Adı olup, tüm hakları saklıdır. Yazılı izin olmaksızın site içeriğinin çoğaltılması veya kopyalanması kesinlikle yasaktır.
+                    </p>
+                    <p>
+                        <strong> Genel Hükümler</strong>
+                    Kullanıcıların tamamı, CarBook'yi yalnızca hukuka uygun ve şahsi amaçlarla kullanacaklarını ve üçüncü kişinin haklarına tecavüz teşkil edecek nitelikteki herhangi bir faaliyette bulunmayacağını taahhüt eder. CarBook dâhilinde yaptıkları işlem ve eylemlerindeki, hukuki ve cezai sorumlulukları kendilerine aittir. İşbu iş ve eylemler sebebiyle, üçüncü kişilerin uğradıkları veya uğrayabilecekleri zararlardan dolayı CarBook'nin doğrudan ve/veya dolaylı hiçbir sorumluluğu yoktur.
+                    </p>
+                    
+                    <p>
+                    Uyuşmazlık Çözümü: İşbu Sözleşme'nin uygulanmasından veya yorumlanmasından doğacak her türlü uyuşmazlığın çözümünde, Türkiye Cumhuriyeti yasaları uygulanır; Ankara Adliyesi Mahkemeleri ve İcra Daireleri yetkilidir.
+                    </p>
+                    <p>
+                    Bu kullanım koşulları, https://carbook.com/hizmetsartlari aracılığıyla oluşturulmuştur.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" >Okudum</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+
+
