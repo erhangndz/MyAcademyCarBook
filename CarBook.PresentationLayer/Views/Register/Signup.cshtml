@@ -30,20 +30,20 @@
                     <form method="post" id="signup-form" class="signup-form">
                         <h2 class="form-title">Hesap Oluşturun</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" asp-for="NameSurname" id="name" placeholder="Adınız Soyadınız" />
+                            <input type="text" class="form-input" asp-for="NameSurname" id="name" required placeholder="Adınız Soyadınız" />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" asp-for="Email" id="email" placeholder="Email Adresiniz" />
+                            <input type="email" class="form-input" asp-for="Email" id="email" required placeholder="Email Adresiniz" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" asp-for="UserName" id="username" placeholder="Kullanıcı Adınız" />
+                            <input type="text" class="form-input" asp-for="UserName" id="username" required placeholder="Kullanıcı Adınız" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" asp-for="Password" id="password" placeholder="Şifreniz" />
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            <input type="text" class="form-input" asp-for="Password" id="password" placeholder="Şifreniz" required />
+                            <span toggle="password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" asp-for="ConfirmPassword" id="re_password" placeholder="Şifreyi Tekrar Girin" />
+                            <input type="password" class="form-input" required asp-for="ConfirmPassword" id="re_password" placeholder="Şifreyi Tekrar Girin" />
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
@@ -74,7 +74,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
-    <!-- Button trigger modal -->
+ 
    
 
     <!-- Modal -->
