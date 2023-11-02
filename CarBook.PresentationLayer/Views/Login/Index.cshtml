@@ -40,16 +40,18 @@
 						Kullanıcı Girişi
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate="Kullanıcı adı boş bırakılamaz">
-						<input class="input100" type="text" asp-for="UserName" placeholder="Kullanıcı Adınız">
+					<div class="validate-input form-floating mb-3" data-validate="Kullanıcı adı boş bırakılamaz">
+						<input class="input100" type="text" id="floatingInput" asp-for="UserName" placeholder="Kullanıcı Adınız">
+						
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Şifre boş bırakılamaz">
-						<input class="input100" type="password" asp-for="Password" placeholder="Şifreniz">
+					<div class="validate-input form-floating" data-validate="Şifre boş bırakılamaz">
+						<input class="input100" type="password" id="floatingPassword" asp-for="Password" placeholder="Şifreniz">
+						
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
