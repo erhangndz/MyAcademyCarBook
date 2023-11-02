@@ -22,11 +22,7 @@ namespace CarBook.PresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginViewModel model)
         {
-            var result = await _signInManager.PasswordSignInAsync(new AppUser
-            {
-                UserName = model.UserName,
-
-            }, model.Password, false,false);
+            var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false,false);
 
             if (result.Succeeded)
             {
