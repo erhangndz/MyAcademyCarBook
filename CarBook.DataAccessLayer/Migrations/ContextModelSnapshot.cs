@@ -201,6 +201,53 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.ToTable("Cars");
                 });
 
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarDetail", b =>
+                {
+                    b.Property<int>("CarDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarDetailId"), 1L, 1);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CarDetailId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("CarDetails");
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarFeature", b =>
+                {
+                    b.Property<int>("CarFeatureId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarFeatureId"), 1L, 1);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeatureName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HasFeature")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CarFeatureId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("CarFeatures");
+                });
+
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarStatus", b =>
                 {
                     b.Property<int>("CarStatusID")
@@ -285,6 +332,61 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.HasIndex("CarID");
 
                     b.ToTable("Prices");
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.Service", b =>
+                {
+                    b.Property<int>("ServiceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceId"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ServiceId");
+
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -417,6 +519,28 @@ namespace CarBook.DataAccessLayer.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarDetail", b =>
+                {
+                    b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
+                        .WithMany("CarDetails")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarFeature", b =>
+                {
+                    b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
+                        .WithMany("CarFeatures")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Price", b =>
                 {
                     b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
@@ -424,6 +548,25 @@ namespace CarBook.DataAccessLayer.Migrations
                         .HasForeignKey("CarID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.Review", b =>
+                {
+                    b.HasOne("CarBook.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
+                        .WithMany("Reviews")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Car");
                 });
@@ -479,6 +622,11 @@ namespace CarBook.DataAccessLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Brand", b =>
                 {
                     b.Navigation("Cars");
@@ -486,7 +634,13 @@ namespace CarBook.DataAccessLayer.Migrations
 
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Car", b =>
                 {
+                    b.Navigation("CarDetails");
+
+                    b.Navigation("CarFeatures");
+
                     b.Navigation("Prices");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.CarStatus", b =>

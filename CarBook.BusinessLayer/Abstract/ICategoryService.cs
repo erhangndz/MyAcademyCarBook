@@ -9,5 +9,7 @@ namespace CarBook.BusinessLayer.Abstract
 {
     public interface ICategoryService:IGenericService<Category>
     {
+
+
     }
 }

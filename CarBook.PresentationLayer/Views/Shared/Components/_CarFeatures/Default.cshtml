@@ -1,0 +1,43 @@
+﻿@model List<CarFeature>
+@{
+	var color="";
+	var status = "";
+	int count = 0;
+}
+<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+	<div class="row">
+		<div class="col-md-4">
+			<ul class="features">
+				
+				@foreach (var item in Model)
+				{
+					
+					if (item.HasFeature == true) { color = "check"; status = "ion-ios-checkmark"; } else { color = "remove"; status = "ion-ios-close"; }
+					
+						<li class="@color"><span class="@status"></span>@item.FeatureName</li>
+					
+				}
+				
+				
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul class="features">
+				<li class="check"><span class="ion-ios-checkmark"></span>Seat Belt</li>
+				<li class="remove"><span class="ion-ios-close"></span>Sleeping Bed</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Water</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Bluetooth</li>
+				<li class="remove"><span class="ion-ios-close"></span>Onboard computer</li>
+			</ul>
+		</div>
+		<div class="col-md-4">
+			<ul class="features">
+				<li class="check"><span class="ion-ios-checkmark"></span>Audio input</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Long Term Trips</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Car Kit</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Remote central locking</li>
+				<li class="check"><span class="ion-ios-checkmark"></span>Climate control</li>
+			</ul>
+		</div>
+	</div>
+</div>

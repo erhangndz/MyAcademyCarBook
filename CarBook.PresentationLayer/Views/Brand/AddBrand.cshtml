@@ -8,8 +8,11 @@
 <h1>Yeni Marka Ekle</h1>
 
 <form method="post">
-    <label>Marka Adı</label>
-    <input type="text" asp-for="BrandName" class="form-control" style="border:1px solid #000000" placeholder="Marka Adı" required />
-    <br />
+    <div class="form-floating mb-3">
+        <label for="floatingInput">Marka Adı</label>
+    <input type="text" asp-for="BrandName" class="form-control" id="floatingInput" placeholder="Marka Adı" required />
+      
+    </div>
+
     <button type="submit" class="btn btn-outline-dark">Kaydet</button>
 </form>

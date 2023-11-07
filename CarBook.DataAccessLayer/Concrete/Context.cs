@@ -18,6 +18,10 @@ namespace CarBook.DataAccessLayer.Concrete
         public DbSet<Category> Categories { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Price> Prices { get; set; }
-
+        public DbSet<Service> Services { get; set; }
+        public DbSet<CarDetail> CarDetails { get; set; }
+        public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        
     }
 }

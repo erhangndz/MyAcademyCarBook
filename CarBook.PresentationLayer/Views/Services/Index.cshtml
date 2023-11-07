@@ -1,0 +1,58 @@
+﻿@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+   
+}
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/carbook-master/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index">Ana Sayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>Hizmetlerimiz <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Hizmetlerimiz</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Hizmetler</span>
+                <h2 class="mb-3">Son Hizmetlerimiz</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+               
+            
+            <div class="col-md-3">
+                <div class="services services-2 w-100 text-center">
+                    <div class="icon d-flex align-items-center justify-content-center"><span class="@item.Icon"></span></div>
+                    <div class="text w-100">
+                        <h3 class="heading mb-2">@item.Title </h3>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            </div>
+  }
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-intro" style="background-image: url(/carbook-master/images/bg_3.jpg);">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-6 heading-section heading-section-white ftco-animate">
+                <h2 class="mb-3">Bizimle birlikte kazanmak ister misiniz? Geç Kalmayın.  </h2>
+                <a href="#" class="btn btn-primary btn-lg">Sürücü Olun</a>
+            </div>
+        </div>
+    </div>
+</section>
+

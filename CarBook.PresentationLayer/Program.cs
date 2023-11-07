@@ -20,6 +20,10 @@ builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<ICarStatusService, CarStatusService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IServiceService, ServiceService>();
+builder.Services.AddScoped<ICarDetailService, CarDetailService>();
+builder.Services.AddScoped<ICarFeatureService, CarFeatureService>();
+
 
 var app = builder.Build();
 
