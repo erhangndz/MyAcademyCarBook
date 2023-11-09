@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace CarBook.BusinessLayer.Abstract
 {
-    public interface ICategoryService:IGenericService<Category>
-    {
-        
-
-    }
+	public interface IReviewService:IGenericService<Review>
+	{
+		List<Review> GetReviewsByCar(int id);
+	}
 }

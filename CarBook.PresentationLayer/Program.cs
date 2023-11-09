@@ -23,6 +23,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IServiceService, ServiceService>();
 builder.Services.AddScoped<ICarDetailService, CarDetailService>();
 builder.Services.AddScoped<ICarFeatureService, CarFeatureService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
 
 
 var app = builder.Build();

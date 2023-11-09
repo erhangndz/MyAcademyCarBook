@@ -1,5 +1,6 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using CarBook.DataAccessLayer.Abstract;
+using CarBook.DataAccessLayer.Concrete;
 using CarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,9 @@ namespace CarBook.BusinessLayer.Concrete
             _categoryDal = categoryDal;
         }
 
-        public void TDelete(int id)
+		
+
+		public void TDelete(int id)
         {
             _categoryDal.Delete(id);
         }

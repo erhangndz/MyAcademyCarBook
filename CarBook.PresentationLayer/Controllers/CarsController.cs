@@ -25,6 +25,7 @@ namespace CarBook.PresentationLayer.Controllers
             ViewBag.id=id;
             return View();
 
+            
             //kategoriye göre kaç araç var ef sorgusu 
         }
     }

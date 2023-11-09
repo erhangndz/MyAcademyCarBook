@@ -27,7 +27,16 @@ namespace CarBook.BusinessLayer.Concrete
             _carDal.Delete(id);
         }
 
-        public List<Car> TGetAll()
+		public int GetCategoryCount(string categoryName)
+		{
+			Context context = new();
+			var categoryId = context.Categories.Where(x => x.CategoryName == categoryName).Select(x => x.CategoryID).FirstOrDefault();
+
+			return context.Cars.Where(x => x.CategoryID == categoryId).Count();
+
+		}
+
+		public List<Car> TGetAll()
         {         
           return  _context.Cars.Include(x=>x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
         }

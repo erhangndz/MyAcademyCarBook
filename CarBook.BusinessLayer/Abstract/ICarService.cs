@@ -11,5 +11,7 @@ namespace CarBook.BusinessLayer.Abstract
     {
         List<Car> TGetAll();
 
-    }
+		public int GetCategoryCount(string categoryName);
+
+	}
 }
