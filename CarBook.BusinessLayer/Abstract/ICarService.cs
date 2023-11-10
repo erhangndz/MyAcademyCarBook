@@ -12,7 +12,7 @@ namespace CarBook.BusinessLayer.Abstract
     {
         List<Car> TGetAll();
 
-		public IQueryable<CategoryDto> GetCategoryCount();
+		public List<CategoryDto> GetCategoryCount();
 
 	}
 }

@@ -28,32 +28,32 @@ namespace CarBook.BusinessLayer.Concrete
             _carDal.Delete(id);
         }
 
-		public IQueryable<CategoryDto> GetCategoryCount()
-		{
-			Context context = new();
-			var result = context.Cars.GroupBy(x=>x.CategoryID).Select(y=> new CategoryDto
+        public List<CategoryDto> GetCategoryCount()
+        {
+            Context context = new();
+            var categories = context.Categories.Select(x => new CategoryDto
             {
-                Count=y.Count(),
-                CategoryName= context.Categories.Where(x=>x.CategoryID==y.Key).Select(x=>x.CategoryName).First(),
-            });
+                CategoryName = x.CategoryName,
+                Count = context.Cars.Count(y => y.CategoryID == x.CategoryID)
+            }).ToList();
 
-			return result;
+            return categories;
 
         }
 
-		public List<Car> TGetAll()
-        {         
-          return  _context.Cars.Include(x=>x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
+        public List<Car> TGetAll()
+        {
+            return _context.Cars.Include(x => x.Category).Include(x => x.Brand).Include(x => x.CarStatus).ToList();
         }
 
         public Car TGetByID(int id)
         {
-           return _carDal.GetByID(id);
+            return _carDal.GetByID(id);
         }
 
         public List<Car> TGetList()
         {
-           return _carDal.GetList();
+            return _carDal.GetList();
         }
 
         public void TInsert(Car entity)
