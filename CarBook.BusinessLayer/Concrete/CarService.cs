@@ -1,4 +1,5 @@
 ﻿using CarBook.BusinessLayer.Abstract;
+using CarBook.BusinessLayer.Dtos;
 using CarBook.DataAccessLayer.Abstract;
 using CarBook.DataAccessLayer.Concrete;
 using CarBook.EntityLayer.Concrete;
@@ -27,14 +28,18 @@ namespace CarBook.BusinessLayer.Concrete
             _carDal.Delete(id);
         }
 
-		public int GetCategoryCount(string categoryName)
+		public IQueryable<CategoryDto> GetCategoryCount()
 		{
 			Context context = new();
-			var categoryId = context.Categories.Where(x => x.CategoryName == categoryName).Select(x => x.CategoryID).FirstOrDefault();
+			var result = context.Cars.GroupBy(x=>x.CategoryID).Select(y=> new CategoryDto
+            {
+                Count=y.Count(),
+                CategoryName= context.Categories.Where(x=>x.CategoryID==y.Key).Select(x=>x.CategoryName).First(),
+            });
 
-			return context.Cars.Where(x => x.CategoryID == categoryId).Count();
+			return result;
 
-		}
+        }
 
 		public List<Car> TGetAll()
         {         

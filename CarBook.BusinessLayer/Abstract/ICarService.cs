@@ -1,4 +1,5 @@
-﻿using CarBook.EntityLayer.Concrete;
+﻿using CarBook.BusinessLayer.Dtos;
+using CarBook.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CarBook.BusinessLayer.Abstract
     {
         List<Car> TGetAll();
 
-		public int GetCategoryCount(string categoryName);
+		public IQueryable<CategoryDto> GetCategoryCount();
 
 	}
 }

@@ -1,6 +1,8 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using CarBook.DataAccessLayer.Abstract;
+using CarBook.DataAccessLayer.Concrete;
 using CarBook.EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,9 @@ namespace CarBook.BusinessLayer.Concrete
 
 		public List<Review> GetReviewsByCar(int id)
 		{
-			return _reviewDal.GetList().Where(x=>x.CarId==id).ToList();
+			using var context = new Context();
+
+			return context.Reviews.Include(x=>x.AppUser).Where(x=>x.CarId == id).ToList();
 		}
 
 		public void TDelete(int id)

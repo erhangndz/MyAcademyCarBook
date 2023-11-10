@@ -36,6 +36,10 @@
 								<li class="nav-item">
 									<a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">Yorumlar</a>
 								</li>
+
+							<li class="nav-item">
+								<a class="nav-link" id="pills-categories-tab" data-toggle="pill" href="#pills-categories" role="tab" aria-controls="pills-categories" aria-expanded="true">Kategoriler</a>
+							</li>
 							</ul>
 						</div>
 
@@ -45,6 +49,7 @@
 							@await Component.InvokeAsync("_CarDescription",new {id=ViewBag.id})
 
 						@await Component.InvokeAsync("_CarReviews",new {id=ViewBag.id})
+						@await Component.InvokeAsync("_CarCategories")
 						</div>
 					</div>
 				</div>
