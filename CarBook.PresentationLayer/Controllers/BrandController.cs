@@ -1,6 +1,8 @@
 ﻿using CarBook.BusinessLayer.Abstract;
+using CarBook.DataAccessLayer.Concrete;
 using CarBook.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CarBook.PresentationLayer.Controllers
 {
@@ -50,5 +52,25 @@ namespace CarBook.PresentationLayer.Controllers
             _brandService.TUpdate(brand);
             return RedirectToAction("Index");
         }
+
+        public IActionResult GetBrandsSearchByName(string name)
+        {
+            ViewData["CurrentFilter"] = name;
+
+            var values = _brandService.TGetList();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                var lowerCaseName = name.ToLower(); 
+
+                values = values.Where(x => x.BrandName.ToLower().Contains(lowerCaseName)).ToList();
+                
+            }
+
+            return View(values);
+        }
+
+
     }
 }
+
