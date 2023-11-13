@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,6 +65,13 @@ namespace CarBook.BusinessLayer.Concrete
         public void TUpdate(Car entity)
         {
             _carDal.Update(entity);
+        }
+
+        public List<Car> GetLast5Cars()
+        {
+            using var context = new Context();
+
+            return context.Cars.Include(x=>x.Brand).TakeLast(5).ToList();
         }
     }
 }

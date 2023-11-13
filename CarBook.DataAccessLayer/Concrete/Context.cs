@@ -22,6 +22,7 @@ namespace CarBook.DataAccessLayer.Concrete
         public DbSet<CarDetail> CarDetails { get; set; }
         public DbSet<CarFeature> CarFeatures { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
         
     }
 }

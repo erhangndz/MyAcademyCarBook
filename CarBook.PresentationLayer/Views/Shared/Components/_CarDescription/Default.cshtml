@@ -1,5 +1,9 @@
 ﻿@model CarDetail
 
 <div class="tab-pane fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-	<p>@Model.Description</p>
+	@if (Model!=null)
+	{
+		<p>@Model.Description</p>
+	}
+
 </div>
