@@ -1,18 +1,33 @@
-﻿using CarBook.EntityLayer.Concrete;
+﻿using CarBook.BusinessLayer.Abstract;
+using CarBook.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System.Text.Json;
+
+
+
 
 namespace CarBook.PresentationLayer.Controllers
 {
-    [Serializable]
+ 
     public class RentCarController : Controller
     {
-        
+        private readonly ICarService _carService;
+
+        public RentCarController(ICarService carService)
+        {
+            _carService = carService;
+        }
+
         public IActionResult Index()
         {
-            var cars = TempData["filteredCars"];
-            var values = JsonConvert.DeserializeObject<List<Car>>(cars.ToString());
+            if (TempData["filteredCars"]!=null)
+            {
+                var cars = TempData["filteredCars"];
+                var data = JsonSerializer.Deserialize<List<Car>>(cars.ToString());
+                return View(data);
+            }
+            var values = _carService.TGetAll();
+           
             return View(values);
         }
     }

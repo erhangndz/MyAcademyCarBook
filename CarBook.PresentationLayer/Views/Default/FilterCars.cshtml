@@ -2,12 +2,12 @@
     <form asp-action="FilterCars" asp-controller="Default" class="request-form ftco-animate bg-primary" method="post">
         <h2>Araç Kiralayın</h2>
         <div class="form-group">
-            <label for="" class="label">Araç Markası</label>
-            <input type="text" class="form-control" name="brand"  placeholder="Opel, Mercedes, Volkswagen vs...">
+            <label for="" class="label">Araç Model Yılı</label>
+            <input type="text" class="form-control" name="year" value="@ViewData["year"]" placeholder="2019, 2020, 2021...">
         </div>
         <div class="form-group">
             <label for="" class="label">Araç Modeli</label>
-            <input type="text" class="form-control" name="model"  placeholder="Astra, C200, Golf vs...">
+            <input type="text" class="form-control" name="model" value="@ViewData["model"]" placeholder="Astra, Range Rover, Golf vs..." required>
         </div>
         <div class="d-flex">
             <div class="form-group mr-2">

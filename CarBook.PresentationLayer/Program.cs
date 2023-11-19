@@ -5,11 +5,14 @@ using CarBook.DataAccessLayer.Concrete;
 using CarBook.DataAccessLayer.Repositories;
 using CarBook.EntityLayer.Concrete;
 using CarBook.PresentationLayer.Models;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
@@ -24,6 +27,11 @@ builder.Services.AddScoped<IServiceService, ServiceService>();
 builder.Services.AddScoped<ICarDetailService, CarDetailService>();
 builder.Services.AddScoped<ICarFeatureService, CarFeatureService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 
 
 var app = builder.Build();

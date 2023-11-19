@@ -1,8 +1,9 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Security.Policy;
 using System.Text.Json;
+
+
+
 
 namespace CarBook.PresentationLayer.Controllers
 {
@@ -26,21 +27,21 @@ namespace CarBook.PresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult FilterCars(string model, string brand)
+        public IActionResult FilterCars(string model,int year)
         {
-            ViewData["modelFilter"] = model;
-            ViewData["brandFilter"] = brand;
+            ViewData["model"] = model;
+            ViewData["year"] = year;
 
             var values = _carService.TGetAll();
 
-            if (!string.IsNullOrEmpty(model) || !string.IsNullOrEmpty(brand))
+            if (!string.IsNullOrEmpty(model) || year!=null)
             {
                 var lowerCaseModel = model.ToLower();
-                var lowerCaseBrand = brand.ToLower();
+                
 
-                values = values.Where(x => x.Model.ToLower().Contains(lowerCaseModel)).ToList();
+                values = values.Where(x => x.Model.ToLower().Contains(lowerCaseModel) || x.Year==year).ToList();
 
-                TempData["filteredCars"] = JsonConvert.SerializeObject(values);
+                TempData["filteredCars"] = JsonSerializer.Serialize(values);
                 return RedirectToAction("Index", "RentCar");
             }
 
