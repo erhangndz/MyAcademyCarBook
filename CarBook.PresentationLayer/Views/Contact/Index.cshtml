@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DefaultLayout.cshtml";
+}
+
+
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/carbook-master/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="/Default/Index">Ana Sayfa <i class="ion-ios-arrow-forward"></i></a></span> <span>İletişim <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Bizimle İletişime Geçin</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row d-flex mb-5 contact-info">
+
+
+       @await Component.InvokeAsync("_ContactInfo")
+
+       @await Html.PartialAsync("SendMessage")
+         
+
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10291.988656381716!2d32.811313833027064!3d39.922897975259225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f319ae6df75%3A0x374440c0af598bfb!2sEmek!5e0!3m2!1str!2str!4v1700395520827!5m2!1str!2str" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

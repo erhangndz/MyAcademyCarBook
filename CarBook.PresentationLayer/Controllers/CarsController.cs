@@ -1,5 +1,6 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
+using X.PagedList;
 
 namespace CarBook.PresentationLayer.Controllers
 {
@@ -14,9 +15,11 @@ namespace CarBook.PresentationLayer.Controllers
 			_carDetailService = carDetailService;
 		}
 
-		public IActionResult Index()
+		public IActionResult Index(int page=1)
         {
-            var values = _carService.TGetAll();
+            var result = _carService.TGetAll();
+
+            var values = result.ToPagedList(page, 3);
             return View(values);
         }
 
@@ -25,9 +28,6 @@ namespace CarBook.PresentationLayer.Controllers
             ViewBag.id=id;
             return View();
 
-
-            //kategoriye göre kaç araç var ef sorgusu 
-           
         }
     }
 }

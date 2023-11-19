@@ -21,6 +21,7 @@ namespace CarBook.EntityLayer.Concrete
         public byte PersonCount { get; set; }
         public string GasType { get; set; }
         public bool Status { get; set; }
+        public decimal RentPrice { get; set; }
         public List<Price> Prices { get; set; }
         public int CarStatusID { get; set; }
         public CarStatus CarStatus { get; set; }

@@ -71,7 +71,7 @@ namespace CarBook.BusinessLayer.Concrete
         {
             using var context = new Context();
 
-            return context.Cars.Include(x=>x.Brand).TakeLast(5).ToList();
+            return context.Cars.Include(x=>x.Brand).OrderByDescending(x=>x.CarID).Take(5).ToList();
         }
     }
 }

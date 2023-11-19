@@ -1,4 +1,6 @@
-﻿@model List<Car>
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<Car>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_DefaultLayout.cshtml";
@@ -32,7 +34,7 @@
                         <h2 class="mb-0"><a href="car-single.html">@item.Model</a></h2>
                         <div class="d-flex mb-3">
                             <span class="cat">@item.Brand.BrandName</span>
-                            <p class="price ml-auto">750 ₺ <span>/Gün</span></p>
+                            <p class="price ml-auto">@item.RentPrice ₺ <span>/Gün</span></p>
                         </div>
                         <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Hemen Kirala</a> <a asp-action="CarDetails" asp-route-id="@item.CarID" class="btn btn-secondary py-2 ml-1">Detaylar</a></p>
                     </div>
@@ -43,16 +45,10 @@
         </div>
         <div class="row mt-5">
             <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
+                <div class="block-27 text-center">
+                   <div class="text-center">
+                        @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new {page}))
+                    </div>
                 </div>
             </div>
         </div>
