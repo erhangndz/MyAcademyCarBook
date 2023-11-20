@@ -26,6 +26,8 @@ namespace CarBook.PresentationLayer.Controllers
                 var data = JsonSerializer.Deserialize<List<Car>>(cars.ToString());
                 return View(data);
             }
+         
+            
             var values = _carService.TGetAll();
            
             return View(values);

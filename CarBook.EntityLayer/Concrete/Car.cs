@@ -13,7 +13,7 @@ namespace CarBook.EntityLayer.Concrete
         public int BrandID { get; set; }
         [JsonIgnore]
         public Brand Brand { get; set; }
-        public string Model { get; set; }
+        public string CarName { get; set; }
         public int Year { get; set; }
         public int CategoryID { get; set; }
         [JsonIgnore]

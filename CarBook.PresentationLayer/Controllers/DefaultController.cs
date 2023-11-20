@@ -1,5 +1,7 @@
 ﻿using CarBook.BusinessLayer.Abstract;
+using CarBook.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text.Json;
 
 
@@ -17,32 +19,87 @@ namespace CarBook.PresentationLayer.Controllers
         }
         public IActionResult Index()
         {
+            var cars = _carService.TGetAll();
+
+            IEnumerable<SelectListItem> models = (from x in cars
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.CarName,
+                                                      Value = x.CarName,
+
+                                                  }).ToList();
+
+            ViewBag.cars = models;
+            var gasList = cars.Select(x=>x.GasType).Distinct().ToList();
+            IEnumerable<SelectListItem> gasTypes = (from x in gasList
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = x,
+                                                        Value = x,
+
+                                                    }).ToList();
+
+            ViewBag.gas = gasTypes;
             return View();
         }
 
         [HttpGet]
         public PartialViewResult FilterCars()
         {
+            var cars = _carService.TGetAll();
+            
+            IEnumerable<SelectListItem> models = (from x in cars
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CarName,
+                                               Value =x.CarName,
+                                               
+                                           }).ToList();
+
+            ViewBag.cars = models;
+
+            var gasList= cars.Select(x=>x.GasType).Distinct().ToList();
+            IEnumerable<SelectListItem> gasTypes = (from x in gasList
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x,
+                                                      Value = x,
+
+                                                  }).ToList();
+
+            ViewBag.gas = gasTypes;
             return PartialView();
         }
 
         [HttpPost]
-        public IActionResult FilterCars(string model,int year)
+        public IActionResult FilterCars(Car car)
         {
-            ViewData["model"] = model;
-            ViewData["year"] = year;
+            ViewData["model"] = car.CarName;
+            ViewData["year"] = car.Year;
+            ViewData["gasType"] = car.GasType;
+
 
             var values = _carService.TGetAll();
+            
 
-            if (!string.IsNullOrEmpty(model) || year!=null)
+            
+
+            if (!string.IsNullOrEmpty(car.CarName) && car.Year!=null && !string.IsNullOrEmpty(car.GasType))
             {
-                var lowerCaseModel = model.ToLower();
+               
+              
+                var lowerCaseModel = car.CarName.ToLower();
+                var lowerCaseGasType = car.GasType.ToLower();
+                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year>=car.Year && x.GasType.ToLower()==lowerCaseGasType).ToList();
+
+                
+                    TempData["filteredCars"] = JsonSerializer.Serialize(values);
+                    return RedirectToAction("Index", "RentCar");
+                
                 
 
-                values = values.Where(x => x.Model.ToLower().Contains(lowerCaseModel) || x.Year==year).ToList();
-
-                TempData["filteredCars"] = JsonSerializer.Serialize(values);
-                return RedirectToAction("Index", "RentCar");
+               
+                
             }
 
             return RedirectToAction("Index");

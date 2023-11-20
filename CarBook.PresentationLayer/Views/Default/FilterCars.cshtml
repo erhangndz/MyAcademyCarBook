@@ -1,13 +1,19 @@
-﻿<div class="col-md-4 d-flex align-items-center">
+﻿@model Car
+
+<div class="col-md-4 d-flex align-items-center">
     <form asp-action="FilterCars" asp-controller="Default" class="request-form ftco-animate bg-primary" method="post">
         <h2>Araç Kiralayın</h2>
         <div class="form-group">
-            <label for="" class="label">Araç Model Yılı</label>
-            <input type="text" class="form-control" name="year" value="@ViewData["year"]" placeholder="2019, 2020, 2021...">
+            <label for="" class="label">Model Yılı En Az</label>
+            <input type="text" class="form-control" asp-for="Year" value="@ViewData["year"]" placeholder="2019, 2020, 2021...">
         </div>
         <div class="form-group">
-            <label for="" class="label">Araç Modeli</label>
-            <input type="text" class="form-control" name="model" value="@ViewData["model"]" placeholder="Astra, Range Rover, Golf vs..." required>
+            <label for="name" class="label">Araç Modeli</label>
+            @Html.DropDownListFor(x=>x.CarName,(IEnumerable<SelectListItem>)ViewBag.cars,"Modeli Seçin",new {@class="form-control"})
+        </div>
+        <div class="form-group">
+            <label for="" class="label">Yakıt Türü</label>
+            @Html.DropDownListFor(x => x.GasType, (IEnumerable<SelectListItem>)ViewBag.gas, "Yakıt Türünü Seçin", new { @class = "form-control"})
         </div>
         <div class="d-flex">
             <div class="form-group mr-2">

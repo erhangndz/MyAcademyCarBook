@@ -31,11 +31,11 @@ namespace CarBook.BusinessLayer.Concrete
 
         public List<CategoryDto> GetCategoryCount()
         {
-            Context context = new();
-            var categories = context.Categories.Select(x => new CategoryDto
+           
+            var categories = _context.Categories.Select(x => new CategoryDto
             {
                 CategoryName = x.CategoryName,
-                Count = context.Cars.Count(y => y.CategoryID == x.CategoryID)
+                Count = _context.Cars.Count(y => y.CategoryID == x.CategoryID)
             }).ToList();
 
             return categories;
@@ -69,9 +69,9 @@ namespace CarBook.BusinessLayer.Concrete
 
         public List<Car> GetLast5Cars()
         {
-            using var context = new Context();
+            
 
-            return context.Cars.Include(x=>x.Brand).OrderByDescending(x=>x.CarID).Take(5).ToList();
+            return _context.Cars.Include(x=>x.Brand).OrderByDescending(x=>x.CarID).Take(5).ToList();
         }
     }
 }

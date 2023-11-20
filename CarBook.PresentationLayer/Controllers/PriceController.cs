@@ -29,7 +29,7 @@ namespace CarBook.PresentationLayer.Controllers
             List<SelectListItem> cars = (from x in carList
                                          select new SelectListItem
                                          {
-                                             Text = x.Brand.BrandName + " " + x.Model,
+                                             Text = x.Brand.BrandName + " " + x.CarName,
                                              Value = x.CarID.ToString()
                                          }).ToList();
             ViewBag.cars=cars;
