@@ -73,5 +73,10 @@ namespace CarBook.BusinessLayer.Concrete
 
             return _context.Cars.Include(x=>x.Brand).OrderByDescending(x=>x.CarID).Take(5).ToList();
         }
+
+        public List<Car> GetLast3Cars()
+        {
+            return _context.Cars.Include(x => x.Brand).OrderByDescending(x => x.CarID).Take(3).ToList();
+        }
     }
 }

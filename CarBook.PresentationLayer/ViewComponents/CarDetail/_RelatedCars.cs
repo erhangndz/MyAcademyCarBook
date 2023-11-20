@@ -1,18 +1,18 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarBook.PresentationLayer.Controllers
+namespace CarBook.PresentationLayer.ViewComponents.CarDetail
 {
-    public class CarController : Controller
+    public class _RelatedCars:ViewComponent
     {
         private readonly ICarService _carService;
 
-        public CarController(ICarService carService)
+        public _RelatedCars(ICarService carService)
         {
             _carService = carService;
         }
 
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             var values = _carService.TGetAll();
             return View(values);

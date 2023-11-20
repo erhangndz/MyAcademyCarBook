@@ -13,6 +13,7 @@ namespace CarBook.BusinessLayer.Abstract
         List<Car> TGetAll();
 
         List<Car> GetLast5Cars();
+        List<Car> GetLast3Cars();
 
 		public List<CategoryDto> GetCategoryCount();
 

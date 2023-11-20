@@ -1,5 +1,6 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using CarBook.EntityLayer.Concrete;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text.Json;
@@ -40,6 +41,17 @@ namespace CarBook.PresentationLayer.Controllers
                                                     }).ToList();
 
             ViewBag.gas = gasTypes;
+
+            var gearList = cars.Select(x => x.Gear).Distinct().ToList();
+            IEnumerable<SelectListItem> gearTypes = (from x in gearList
+                                                     select new SelectListItem
+                                                     {
+                                                         Text = x,
+                                                         Value = x,
+
+                                                     }).ToList();
+
+            ViewBag.gear = gearTypes;
             return View();
         }
 
@@ -68,6 +80,17 @@ namespace CarBook.PresentationLayer.Controllers
                                                   }).ToList();
 
             ViewBag.gas = gasTypes;
+
+            var gearList = cars.Select(x => x.Gear).Distinct().ToList();
+            IEnumerable<SelectListItem> gearTypes = (from x in gearList
+                                                    select new SelectListItem
+                                                    {
+                                                        Text = x,
+                                                        Value = x,
+
+                                                    }).ToList();
+
+            ViewBag.gear = gearTypes;
             return PartialView();
         }
 
@@ -77,6 +100,7 @@ namespace CarBook.PresentationLayer.Controllers
             ViewData["model"] = car.CarName;
             ViewData["year"] = car.Year;
             ViewData["gasType"] = car.GasType;
+            ViewData["gearType"] = car.Gear;
 
 
             var values = _carService.TGetAll();
@@ -84,13 +108,14 @@ namespace CarBook.PresentationLayer.Controllers
 
             
 
-            if (!string.IsNullOrEmpty(car.CarName) && car.Year!=null && !string.IsNullOrEmpty(car.GasType))
+            if (!string.IsNullOrEmpty(car.CarName) || car.Year!=null || !string.IsNullOrEmpty(car.GasType) || !string.IsNullOrEmpty(car.Gear) || car.km!=null)
             {
                
               
                 var lowerCaseModel = car.CarName.ToLower();
                 var lowerCaseGasType = car.GasType.ToLower();
-                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year>=car.Year && x.GasType.ToLower()==lowerCaseGasType).ToList();
+                var lowerCaseGearType = car.Gear.ToLower();
+                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year>=car.Year && x.GasType.ToLower()==lowerCaseGasType && x.Gear.ToLower()==lowerCaseGearType && x.km<=car.km).ToList();
 
                 
                     TempData["filteredCars"] = JsonSerializer.Serialize(values);
