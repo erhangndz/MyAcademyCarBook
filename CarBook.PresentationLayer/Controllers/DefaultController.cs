@@ -108,14 +108,14 @@ namespace CarBook.PresentationLayer.Controllers
 
             
 
-            if (!string.IsNullOrEmpty(car.CarName) || car.Year!=null || !string.IsNullOrEmpty(car.GasType) || !string.IsNullOrEmpty(car.Gear) || car.km!=null)
+            if (!string.IsNullOrEmpty(car.CarName) || car.Year!=null || !string.IsNullOrEmpty(car.GasType) || !string.IsNullOrEmpty(car.Gear) )
             {
                
               
                 var lowerCaseModel = car.CarName.ToLower();
                 var lowerCaseGasType = car.GasType.ToLower();
                 var lowerCaseGearType = car.Gear.ToLower();
-                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year>=car.Year && x.GasType.ToLower()==lowerCaseGasType && x.Gear.ToLower()==lowerCaseGearType && x.km<=car.km).ToList();
+                values = values.Where(x => x.CarName.ToLower().Contains(lowerCaseModel) && x.Year>=car.Year && x.GasType.ToLower()==lowerCaseGasType && x.Gear.ToLower()==lowerCaseGearType).ToList();
 
                 
                     TempData["filteredCars"] = JsonSerializer.Serialize(values);
