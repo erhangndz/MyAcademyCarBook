@@ -1,0 +1,44 @@
+// 
+// root.scss
+//
+
+@mixin color-mode($mode: light, $root: false) {
+    @if $color-mode-type =="media-query" {
+        @if $root ==true {
+            @media (prefers-color-scheme: $mode) {
+                :root {
+                    @content;
+                }
+            }
+        }
+
+        @else {
+            @media (prefers-color-scheme: $mode) {
+                @content;
+            }
+        }
+    }
+
+    @else {
+        [data-bs-theme="#{$mode}"] {
+            @content;
+        }
+    }
+}
+
+// theme-light
+// :root,
+// [data-bs-theme="light"] {
+
+
+// }
+
+//theme dark
+@if $enable-dark-mode {
+    @include color-mode(dark, true) {
+        --#{$prefix}light:                      #464f5b;
+        --#{$prefix}light-rgb:                  #{to-rgb(#464f5b)};
+        --#{$prefix}dark:                       #637385;
+        --#{$prefix}dark-rgb:                   #{to-rgb(#637385)};
+    }
+}

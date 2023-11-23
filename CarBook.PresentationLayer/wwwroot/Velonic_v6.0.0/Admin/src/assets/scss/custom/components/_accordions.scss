@@ -1,0 +1,16 @@
+//
+// accordions.scss
+//
+
+.accordion-header {
+    margin: 0;
+}
+
+.accordion {
+    >.card {
+        >.card-header {
+            border-radius: 0;
+            margin-bottom: -1px;
+        }
+    }
+}

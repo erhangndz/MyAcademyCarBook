@@ -1,0 +1,10 @@
+//
+// error.scss
+//
+
+.text-error {
+    color: var(--#{$prefix}primary);
+    text-shadow: rgba(var(--#{$prefix}primary-rgb), 0.4) 5px 1px, rgba(var(--#{$prefix}primary-rgb), 0.3) 10px 3px;
+    font-size: 5.5rem;
+    line-height: 5.625rem;
+}

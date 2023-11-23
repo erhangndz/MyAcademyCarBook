@@ -1,0 +1,108 @@
+﻿@using CarBook.DtoLayer.DTOs.CarDtos
+@model CarDto
+@{
+    ViewData["Title"] = "AddCar";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Araç Ekle</h1>
+
+<form method="post">
+    <div class="row">
+    <div class="col-lg-6">
+
+        <div class="form-floating mb-3">
+            @Html.DropDownListFor(x => x.BrandID, (List<SelectListItem>)ViewBag.brands, "Markayı Seçiniz", new { @class = "form-control", id = "floatingBrand", placeholder = "Marka" })
+            <label for="floatingBrand">Marka</label>
+        </div>
+       
+
+
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" placeholder="Araç Yılı"
+                   id="floatingYear" asp-for="Year">
+            <label for="floatingYear">Araç Yılı</label>
+        </div>
+
+       
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Araç Görseli URL"
+                   id="floatingImage" asp-for="Image">
+            <label for="floatingImage">Araç Görseli URL</label>
+        </div>
+
+
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingGear"
+                    aria-label="Floating label select example" asp-for="Gear">
+                <option selected>Vites Türünü Seçiniz</option>
+                <option value="Otomatik">Otomatik</option>
+                <option value="Manuel">Manuel</option>
+               
+            </select>
+            <label for="floatingGear">Vites Türü</label>
+        </div>
+
+       
+
+       
+
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" placeholder="Kaç Kişilik"
+                   id="floatingperson" asp-for="PersonCount">
+            <label for="floatingkm">Kaç Kişilik</label>
+        </div>
+
+      
+
+        <div class="form-floating mb-3">
+            @Html.DropDownListFor(x => x.CarStatusID, (List<SelectListItem>)ViewBag.carStatus, "Araç Durumunu Seçiniz", new { @class = "form-control", id = "floatingCarStatus", placeholder = "Araç Durumu" })
+            <label for="floatingCategory">Araç Durumu</label>
+        </div>
+
+    </div>
+
+    <div class="col-lg-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingModel"
+                   placeholder="Araç Modeli" asp-for="CarName">
+            <label for="floatingModel">Araç Modeli</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.category, "Kategori Seçiniz", new { @class = "form-control", id = "floatingCategory", placeholder = "Kategori" })
+            <label for="floatingCategory">Kategori</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" placeholder="Araç Kilometresi"
+                   id="floatingperson" asp-for="km">
+            <label for="floatingkm">Araç Kilometre</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <select class="form-select" id="floatingGas"
+                    aria-label="Floating label select example" asp-for="GasType">
+                <option selected>Yakıt Türünü Seçiniz</option>
+                <option value="Dizel">Dizel</option>
+                <option value="Benzin">Benzin</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Elektrikli">Elektrikli</option>
+
+            </select>
+            <label for="floatingGas">Yakıt Türü</label>
+        </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" placeholder="Günlük Kira Ücreti"
+                       id="floatingPrice" asp-for="RentPrice">
+                <label for="floatingPrice">Günlük Kira Ücreti</label>
+            </div>
+
+    </div>
+    </div>
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>

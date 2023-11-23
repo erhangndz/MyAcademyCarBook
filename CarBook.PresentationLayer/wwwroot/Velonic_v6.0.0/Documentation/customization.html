@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Velonic - Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Techzaa" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Topbar Start -->
+                <div class="navbar-custom">
+                    <a href="index.html" class="logo text-center d-none d-md-inline-block mr-2">
+                        <span class="logo-lg">
+                            <img src="assets/images/logo-light.png" alt="" height="18">
+                        </span>
+                    </a>
+
+                    <button type="button" class="btn btn-sm btn-dark d-inline-block d-lg-none button-menu-mobile">Menu</button>
+    
+                    <span class="badge badge-danger float-right mt-1">v6.0.0</span>
+                </div>
+                <!-- end Topbar -->
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <div class="page-wrapper">
+                        <div class="left-sidebar">
+                            <div class="slimscroll-menu">
+                                <div class="list-group list-group-transparent mb-0">
+
+                                    <span class="list-group-item disabled">
+                                        Getting Started
+                                    </span>
+
+                                    <a href="index.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-flag-variant-outline"></i>
+                                        </span>Introduction
+                                    </a>
+
+                                    <a href="setup.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-apps"></i>
+                                        </span>Setup
+                                    </a>
+
+                                    <a href="customization.html" class="list-group-item list-group-item-action active">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-square-edit-outline"></i>
+                                        </span>Customization
+                                    </a>
+
+                                    <a href="plugins-uses.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-widgets"></i>
+                                        </span>How to use plugins
+                                    </a>
+
+                                    <span class="list-group-item disabled">
+                                        Layout
+                                    </span>
+
+                                    <a href="vertical.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-menu"></i>
+                                        </span>Vertical Layouts
+                                    </a>
+
+                                    <a href="horizontal.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                        </span>Horizontal Layouts
+                                    </a>
+
+                                    <a href="dark.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-briefcase-outline"></i>
+                                        </span>Dark Version
+                                    </a>
+
+                                    <a href="rtl.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                        </span>RTL Version
+                                    </a>
+
+                                    <span class="list-group-item disabled">
+                                        Other
+                                    </span>
+
+                                    <a href="changelog.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-book-open-page-variant"></i>
+                                        </span>Changelog
+                                    </a>
+        
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end left-sidebar-->
+
+                        <div class="page-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="p-lg-1">
+                                        <h3 class="mt-0 mb-2 font-weight-bold">Customization</h3>
+
+                                        <hr/>
+
+                                        <p>
+                                            You can customize various elements including navbar, topbar, form elements etc by simply editing Sass files present in
+                                            <code>/src/scss</code> directory or removing unneeded components from
+                                            <code>app.scss</code> source files. Currently few key customizations are available, but we have plan
+                                            to add many more in future releases.
+                                        </p>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-bold">How to add new page?</h4>
+
+                                        <p>
+                                            We have provided a starter page (check
+                                            <code>src/pages-starter.html</code>) which allows you to get started easily and helps you to add new pages. Please
+                                            note following some important points.
+                                        </p>
+                                        <p>
+                                            <ul>
+                                                <li>
+                                                    Make sure you have included
+                                                    <code>css/bootstrap.min.css,css/app.min.css, css/icons.min.css</code> and
+                                                    <code>js/config.js, js/layout.js and js/app.min.js</code> in your html
+                                                </li>
+                                                <li>
+                                                    Most of the default/basic form elements along with few advanced elements are available and bundled in the above css and js and so
+                                                    you don't need to include any css or js separately.
+                                                </li>
+                                                <li>
+                                                    Few elements e.g. charts, data tables, calendar, maps etc. requires you to include corresponding css and js files in your
+                                                    html. Take a look at <a href="plugins-uses.html">here</a> to find which are the required files for the same.
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-bold">How to change colors?</h4>
+                                        <p>In order to change colors (including primary, secondary, success, info, danger, warning, etc.), do the following:</p>
+                                        <ul>
+                                            <li>A file
+                                                <code>src/scss/config/_variables.scss</code> is containing the overridden colors and other configurations of bootstrap.
+                                                You can change any values here and it would get reflected in any bootstrap
+                                                based components or elements.
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-bold">How to change particular UI element?</h4>
+                                        <p>In order to change the particular UI element, widget, chart, etc., please check folder
+                                            <code>src/scss/custom/plugins</code>. You should be able to change any style by simply making modifications in corresponding
+                                            file here.</p>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-bold">How to change footer?</h4>
+                                        <p>
+                                            In order to add, change or remove any ui elements from footer or sidebar, simply edit in file
+                                            <code>src/partials/footer.html</code>). The change would reflect in all the files automatically.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end page-wrapper-->
+
+                    
+                </div>
+
+            </div>
+            <!-- content -->
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            2015 - 2020 © Velonic - by Techzaa
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="#" target="_blank">About</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- bundle -->
+    <script src="assets/js/app.min.js"></script>
+</body>
+
+</html>

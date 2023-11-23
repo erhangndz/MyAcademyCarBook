@@ -1,0 +1,116 @@
+[
+    {
+        "id": "node_1",
+        "icon": "ri-folder-line icon-lg text-success",
+        "text": "Node - 1",
+        "children": [
+            {
+                "id": "node_4",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 1.1",
+                "children": false
+            },
+            {
+                "id": "node_5",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 1.2",
+                "children": false
+            },
+            {
+                "id": "node_6",
+                "icon": "ri-folder-line icon-lg text-success",
+                "text": "Node - 1.3",
+                "children": [
+                    {
+                        "id": "node_13",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 1.3.1",
+                        "children": false
+                    },
+                    {
+                        "id": "node_15",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 1.3.2",
+                        "children": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "node_2",
+        "icon": "ri-folder-line icon-lg text-success",
+        "text": "Node - 2",
+        "children": [
+            {
+                "id": "node_7",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 2.1",
+                "children": false
+            },
+            {
+                "id": "node_8",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 2.2",
+                "children": false
+            },
+            {
+                "id": "node_9",
+                "icon": "ri-folder-line icon-lg text-success",
+                "text": "Node - 2.3",
+                "children": [
+                    {
+                        "id": "node_16",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 2.3.1",
+                        "children": false
+                    },
+                    {
+                        "id": "node_17",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 2.3.2",
+                        "children": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "node_3",
+        "icon": "ri-folder-line icon-lg text-success",
+        "text": "Node - 3",
+        "children": [
+            {
+                "id": "node_10",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 3.1",
+                "children": false
+            },
+            {
+                "id": "node_11",
+                "icon": "ri-article-line icon-lg text-warning",
+                "text": "Node - 3.2",
+                "children": false
+            },
+            {
+                "id": "node_12",
+                "icon": "ri-folder-line icon-lg text-success",
+                "text": "Node - 3.3",
+                "children": [
+                    {
+                        "id": "node_18",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 3.3.1",
+                        "children": false
+                    },
+                    {
+                        "id": "node_19",
+                        "icon": "ri-article-line icon-lg text-warning",
+                        "text": "Node - 3.3.2",
+                        "children": false
+                    }
+                ]
+            }
+        ]
+    }
+]

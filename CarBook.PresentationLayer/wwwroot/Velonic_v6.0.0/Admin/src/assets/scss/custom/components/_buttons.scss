@@ -1,0 +1,60 @@
+//
+// buttons.scss
+//
+
+@each $state in map-keys($theme-colors) {
+
+    .btn-#{$state} {
+        --#{$prefix}btn-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$state}-text-emphasis);
+        --#{$prefix}btn-hover-border-color: var(--#{$prefix}#{$state}-text-emphasis);
+        --#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}#{$state}-rgb);
+        --#{$prefix}btn-active-bg: var(--#{$prefix}#{$state}-text-emphasis);
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}#{$state}-text-emphasis);
+    }
+
+    .btn-outline-#{$state} {
+        --#{$prefix}btn-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-bg: transparent;
+        --#{$prefix}btn-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-hover-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-focus-shadow-rgb: var(--#{$prefix}#{$state}-rgb);
+        --#{$prefix}btn-active-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}#{$state});
+    }
+    
+    .btn-soft-#{$state} {
+        --#{$prefix}btn-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-bg: var(--#{$prefix}#{$state}-bg-subtle);
+        --#{$prefix}btn-border-color: #{transparent};
+        --#{$prefix}btn-hover-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-hover-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-active-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-active-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-disabled-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-disabled-bg: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-disabled-border-color: var(--#{$prefix}#{$state});
+        --#{$prefix}btn-focus-shadow-rgb: 0 0 0 $btn-focus-width rgba(var(--#{$prefix}#{$state})-rgb, 0.5);
+    }
+}
+
+@each $color, $value in $theme-colors {
+    
+    .btn-soft-#{$color} {
+        --#{$prefix}btn-active-color: #{color-contrast($value)};
+        --#{$prefix}btn-hover-color: #{color-contrast($value)};
+    }
+}
+
+
+// Light & Dark button
+[data-bs-theme="dark"] {
+
+    .btn-light {
+        --#{$prefix}btn-color: #fff;
+        --#{$prefix}btn-active-color: #fff;
+        --#{$prefix}btn-hover-color: #fff;
+    }
+}

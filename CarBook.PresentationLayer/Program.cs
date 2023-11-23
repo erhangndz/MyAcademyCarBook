@@ -1,3 +1,4 @@
+using AutoMapper;
 using CarBook.BusinessLayer.Abstract;
 using CarBook.BusinessLayer.Concrete;
 using CarBook.DataAccessLayer.Abstract;
@@ -33,6 +34,8 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
     options.JsonSerializerOptions.WriteIndented = true;
 });
 
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

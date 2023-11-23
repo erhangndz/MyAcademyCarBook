@@ -1,0 +1,46 @@
+// 
+// footer.scss
+//
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: $footer-height;
+    display: flex;
+    align-items: center;
+    padding: 0 $spacer;
+    color: var(--#{$prefix}gray-600);
+    transition: $transition-base;
+    border-top: 1px solid $card-border-color;
+
+    .footer-links {
+        a {
+            color: var(--#{$prefix}gray-600);
+            margin-left: $spacer;
+            transition: all .4s;
+
+            &:hover {
+                color: var(--#{$prefix}gray-600);
+            }
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+// Used for account authentication pages
+.footer-alt {
+    border: none;
+    text-align: center;
+    justify-content: center;
+}
+
+@include media-breakpoint-down(md) {
+    .footer {
+        text-align: center;
+    }
+}

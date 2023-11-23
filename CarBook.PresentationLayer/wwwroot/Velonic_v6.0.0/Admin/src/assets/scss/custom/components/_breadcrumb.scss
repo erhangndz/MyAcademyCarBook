@@ -1,0 +1,17 @@
+//
+// breadcrumb.scss
+//
+
+// Breadcrumb item arrow
+.breadcrumb-item {
+    a {
+        color: inherit;
+    }
+    +.breadcrumb-item {
+        &::before {
+            font-family: "remixicon";
+            font-size: 16px;
+            line-height: 1.3;
+        }
+    }
+}

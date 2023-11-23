@@ -1,0 +1,22 @@
+// Utilities
+
+// border style
+.border-dashed {
+    border-style: dashed !important;
+}
+
+$utilities: (
+    "font-size-custom": (
+        property: font-size,
+        class: fs,
+        values: $font-size-custom
+    )
+);
+
+.bg-pink-subtle {
+    background-color: var(--#{$prefix}pink-bg-subtle)!important;
+}
+
+.bg-purple-subtle {
+    background-color: var(--#{$prefix}purple-bg-subtle)!important;
+}

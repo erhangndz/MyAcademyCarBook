@@ -1,0 +1,131 @@
+@@include('./partials/html.html')
+
+<head>
+    @@include("./partials/title-meta.html", {"title": "Editors"})
+
+    <!-- Quill css -->
+    <link href="assets/vendor/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+
+    @@include('./partials/head-css.html')
+
+</head>
+
+<body>
+    <!-- Begin page -->
+    <div class="wrapper">
+
+        @@include('./partials/menu.html')
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    @@include("./partials/page-title.html", {"subtitle":"Forms","title":"Editors"})
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="header-title">Quill Editor</h4>
+                                    <p class="text-muted mb-0">Snow is a clean, flat toolbar theme.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="mb-2">
+                                            <div id="snow-editor" style="height: 300px;">
+                                                <h3><span class="ql-size-large">Hello World!</span></h3>
+                                                <p><br></p>
+                                                <h3>This is an simple editable area.</h3>
+                                                <p><br></p>
+                                                <ul>
+                                                    <li>
+                                                        Select a text to reveal the toolbar.
+                                                    </li>
+                                                    <li>
+                                                        Edit rich document on-the-fly, so elastic!
+                                                    </li>
+                                                </ul>
+                                                <p><br></p>
+                                                <p>
+                                                    End of simple area
+                                                </p>
+                                            </div><!-- end Snow-editor-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-1">Bubble Editor</h5>
+                                    <p class="text-muted mb-0">Bubble is a simple tooltip based theme.</p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="mb-2">
+                                            <div id="bubble-editor" style="height: 300px;">
+                                                <h3><span class="ql-size-large">Hello World!</span></h3>
+                                                <p><br></p>
+                                                <h3>This is an simple editable area.</h3>
+                                                <p><br></p>
+                                                <ul>
+                                                    <li>
+                                                        Select a text to reveal the toolbar.
+                                                    </li>
+                                                    <li>
+                                                        Edit rich document on-the-fly, so elastic!
+                                                    </li>
+                                                </ul>
+                                                <p><br></p>
+                                                <p>
+                                                    End of simple area
+                                                </p>
+                                            </div> <!-- end Snow-editor-->
+
+                                        </div>
+                                    </li>
+                                </ul> <!-- end list-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+            @@include('./partials/footer.html')
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+
+    @@include('./partials/right-sidebar.html')
+
+    @@include('./partials/footer-scripts.html')
+
+    <!-- Quill Editor js -->
+    <script src="assets/vendor/quill/quill.min.js"></script>
+
+    <!-- Quill Demo js -->
+    <script src="assets/js/pages/quilljs.init.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
+
+</body>
+
+</html>

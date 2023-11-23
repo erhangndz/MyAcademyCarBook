@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\CarDtos\" />
-    <Folder Include="DTOs\CategoryDtos\" />
-    <Folder Include="DTOs\CarStatusDtos\" />
-    <Folder Include="DTOs\LocationDtos\" />
-    <Folder Include="DTOs\BrandDtos\" />
     <Folder Include="DTOs\PriceDtos\" />
   </ItemGroup>
 

@@ -1,0 +1,131 @@
+// Dark color mode variables
+//
+// Custom variables for the `[data-bs-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+
+//
+// Global colors
+//
+
+// scss-docs-start sass-dark-mode-vars
+$primary-text-emphasis-dark:                 $cyan-600;
+$secondary-text-emphasis-dark:               $gray-600;
+$success-text-emphasis-dark:                 $blue-600;
+$info-text-emphasis-dark:                    $indigo-600;
+$warning-text-emphasis-dark:                 $yellow-600;
+$danger-text-emphasis-dark:                  $red-600;
+$pink-text-emphasis-dark:                    $pink-600;
+$purple-text-emphasis-dark:                  $purple-600;
+$light-text-emphasis-dark:                   $gray-600;
+$dark-text-emphasis-dark:                    $gray-600;
+
+$primary-bg-subtle-dark:            rgba(var(--#{$prefix}primary-rgb), 0.2);
+$secondary-bg-subtle-dark:          rgba(var(--#{$prefix}secondary-rgb), 0.2);
+$success-bg-subtle-dark:            rgba(var(--#{$prefix}success-rgb), 0.2);
+$info-bg-subtle-dark:               rgba(var(--#{$prefix}info-rgb), 0.2);
+$warning-bg-subtle-dark:            rgba(var(--#{$prefix}warning-rgb), 0.2);
+$danger-bg-subtle-dark:             rgba(var(--#{$prefix}danger-rgb), 0.2);
+$pink-bg-subtle-dark:               rgba(var(--#{$prefix}pink-rgb), 0.2);
+$purple-bg-subtle-dark:             rgba(var(--#{$prefix}purple-rgb), 0.2);
+$light-bg-subtle-dark:              rgba(var(--#{$prefix}light-rgb), 0.2);
+$dark-bg-subtle-dark:               rgba(var(--#{$prefix}dark-rgb), 0.2);
+
+$primary-border-subtle-dark:        $cyan-700;
+$secondary-border-subtle-dark:      $gray-700;
+$success-border-subtle-dark:        $blue-700;
+$info-border-subtle-dark:           $indigo-800;
+$warning-border-subtle-dark:        $yellow-800;
+$danger-border-subtle-dark:         $red-700;
+$pink-border-subtle-dark:           $pink-700;
+$purple-border-subtle-dark:         $purple-700;
+$light-border-subtle-dark:          $gray-700;
+$dark-border-subtle-dark:           $gray-800;
+
+$body-color-dark:                   #aab8c5;
+$body-bg-dark:                      #2d333c;
+$body-emphasis-color-dark:          $gray-100;
+$body-secondary-color-dark:         #8391a2;
+$body-secondary-bg-dark:            #313a46;
+$body-tertiary-color-dark:          #f1f1f1;
+$body-tertiary-bg-dark:             #404954;
+$border-color-dark:                 #464f5b;
+$border-color-translucent-dark:     #464f5b;
+$headings-color-dark:               inherit;
+$link-color-dark:                   $cyan-500;
+$link-hover-color-dark:             $cyan-600;
+$code-color-dark:                   $cyan-500;
+
+
+//
+// Forms
+//
+
+$form-select-indicator-color-dark:  $body-color-dark;
+$form-select-indicator-dark:        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='#{$form-select-indicator-color-dark}' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/></svg>");
+
+$form-switch-color-dark:            rgba($white, .25);
+$form-switch-bg-image-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color-dark}'/></svg>");
+
+// scss-docs-start form-validation-colors-dark
+$form-valid-color-dark:             $blue-300 !default;
+$form-valid-border-color-dark:      $blue-300 !default;
+$form-invalid-color-dark:           $red-300 !default;
+$form-invalid-border-color-dark:    $red-300 !default;
+// scss-docs-end form-validation-colors-dark
+
+//
+// Accordion
+//
+
+$accordion-icon-color-dark:         $primary-text-emphasis-dark !default;
+$accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
+
+$accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+// scss-docs-end sass-dark-mode-vars
+
+
+
+// scss-docs-start theme-text-dark-map
+$theme-colors-text-dark: (
+    "primary":   $primary-text-emphasis-dark,
+    "secondary": $secondary-text-emphasis-dark,
+    "success":   $success-text-emphasis-dark,
+    "info":      $info-text-emphasis-dark,
+    "warning":   $warning-text-emphasis-dark,
+    "danger":    $danger-text-emphasis-dark,
+    "pink":      $pink-text-emphasis-dark,
+    "purple":    $purple-text-emphasis-dark,
+    "light":     $light-text-emphasis-dark,
+    "dark":      $dark-text-emphasis-dark,
+);
+// scss-docs-end theme-text-dark-map
+
+// scss-docs-start theme-bg-subtle-dark-map
+$theme-colors-bg-subtle-dark: (
+    "primary":   $primary-bg-subtle-dark,
+    "secondary": $secondary-bg-subtle-dark,
+    "success":   $success-bg-subtle-dark,
+    "info":      $info-bg-subtle-dark,
+    "warning":   $warning-bg-subtle-dark,
+    "danger":    $danger-bg-subtle-dark,
+    "pink":      $pink-bg-subtle-dark,
+    "purple":    $purple-bg-subtle-dark,
+    "light":     $light-bg-subtle-dark,
+    "dark":      $dark-bg-subtle-dark,
+);
+// scss-docs-end theme-bg-subtle-dark-map
+
+// scss-docs-start theme-border-subtle-dark-map
+$theme-colors-border-subtle-dark: (
+    "primary":   $primary-border-subtle-dark,
+    "secondary": $secondary-border-subtle-dark,
+    "success":   $success-border-subtle-dark,
+    "info":      $info-border-subtle-dark,
+    "warning":   $warning-border-subtle-dark,
+    "danger":    $danger-border-subtle-dark,
+    "pink":      $pink-border-subtle-dark,
+    "purple":    $purple-border-subtle-dark,
+    "light":     $light-border-subtle-dark,
+    "dark":      $dark-border-subtle-dark,
+);
+// scss-docs-end theme-border-subtle-dark-map

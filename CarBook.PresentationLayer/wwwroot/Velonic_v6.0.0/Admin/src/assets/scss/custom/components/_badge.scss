@@ -1,0 +1,25 @@
+//
+// _badges.scss
+//
+
+// Outline badge
+
+@each $state in map-keys($theme-colors) {
+    .badge-outline-#{$state} {
+        --#{$prefix}badge-color: var(--#{$prefix}#{$state});
+        border: 1px solid var(--#{$prefix}#{$state});
+        background-color: transparent;
+
+        &[href] {
+            color: var(--#{$prefix}#{$state});
+            text-decoration: none;
+            background-color: var(--#{$prefix}#{$state}-bg-subtle);
+
+            &:is(:hover,:focus) {
+                color: var(--#{$prefix}#{$state});
+                text-decoration: none;
+                background-color: var(--#{$prefix}#{$state}-bg-subtle);
+            }
+        }
+    }
+}

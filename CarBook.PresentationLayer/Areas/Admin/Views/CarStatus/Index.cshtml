@@ -1,0 +1,56 @@
+﻿@model List<CarStatus>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<h1>Araç Durum Listesi</h1>
+@{
+    int count = 0;
+}
+<div class="container">
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Durum</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.StatusName</td>
+                <td>
+                    <button onclick="deleteCarStatus(@item.CarStatusID)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdateCarStatus" asp-route-id="@item.CarStatusID" class="btn btn-outline-info">Düzenle</a>
+                    <a asp-action="CarStatusDetails" asp-route-id="@item.CarStatusID" class="btn btn-outline-secondary">Detaylar</a>
+
+                </td>
+            </tr>
+        }
+    </table>
+    <br />
+    <a asp-action="AddCarStatus" asp-controller="CarStatus" class="btn btn-outline-dark">Yeni Durum Ekle</a>
+</div>
+
+<script>
+    function deleteCarStatus(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/CarStatus/DeleteCarStatus?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>
+

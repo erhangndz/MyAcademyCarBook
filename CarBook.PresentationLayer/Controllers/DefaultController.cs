@@ -25,7 +25,7 @@ namespace CarBook.PresentationLayer.Controllers
             IEnumerable<SelectListItem> models = (from x in cars
                                                   select new SelectListItem
                                                   {
-                                                      Text = x.CarName,
+                                                      Text = x.Brand.BrandName + " " + x.CarName,
                                                       Value = x.CarName,
 
                                                   }).ToList();
@@ -63,7 +63,7 @@ namespace CarBook.PresentationLayer.Controllers
             IEnumerable<SelectListItem> models = (from x in cars
                                            select new SelectListItem
                                            {
-                                               Text = x.CarName,
+                                               Text = x.Brand.BrandName+" "+ x.CarName,
                                                Value =x.CarName,
                                                
                                            }).ToList();

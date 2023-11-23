@@ -1,7 +1,7 @@
 ﻿@model List<Car>
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/AdminLayout/Index.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <script src="~/Scripts/jquery-3.4.1.js"></script>
@@ -42,7 +42,7 @@
         }
     </table>
     <br />
-    <a href="/Car/AddCar" class="btn btn-outline-dark">Yeni Araba Ekle</a>
+    <a href="/Admin/Car/AddCar" class="btn btn-outline-dark">Yeni Araba Ekle</a>
 </div>
 
 <script>

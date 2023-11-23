@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Velonic - Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Techzaa" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- App css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+
+                <!-- Topbar Start -->
+                <div class="navbar-custom">
+                    <a href="index.html" class="logo text-center d-none d-md-inline-block mr-2">
+                        <span class="logo-lg">
+                            <img src="assets/images/logo-light.png" alt="" height="18">
+                        </span>
+                    </a>
+
+                    <button type="button" class="btn btn-sm btn-dark d-inline-block d-lg-none button-menu-mobile">Menu</button>
+    
+                    <span class="badge badge-danger float-right mt-1">v6.0.0</span>
+                </div>
+                <!-- end Topbar -->
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <div class="page-wrapper">
+                        <div class="left-sidebar">
+                            <div class="slimscroll-menu">
+                                <div class="list-group list-group-transparent mb-0">
+
+                                    <span class="list-group-item disabled">
+                                        Getting Started
+                                    </span>
+
+                                    <a href="index.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-flag-variant-outline"></i>
+                                        </span>Introduction
+                                    </a>
+
+                                    <a href="setup.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-apps"></i>
+                                        </span>Setup
+                                    </a>
+
+                                    <a href="customization.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-square-edit-outline"></i>
+                                        </span>Customization
+                                    </a>
+
+                                    <a href="plugins-uses.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-widgets"></i>
+                                        </span>How to use plugins
+                                    </a>
+
+                                    <span class="list-group-item disabled">
+                                        Layout
+                                    </span>
+
+                                    <a href="vertical.html" class="list-group-item list-group-item-action active">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-menu"></i>
+                                        </span>Vertical Layouts
+                                    </a>
+
+                                    <a href="horizontal.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                        </span>Horizontal Layouts
+                                    </a>
+
+                                    <a href="dark.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-briefcase-outline"></i>
+                                        </span>Dark Version
+                                    </a>
+
+                                    <a href="rtl.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-page-layout-sidebar-left"></i>
+                                        </span>RTL Version
+                                    </a>
+
+                                    <span class="list-group-item disabled">
+                                        Other
+                                    </span>
+
+                                    <a href="changelog.html" class="list-group-item list-group-item-action ">
+                                        <span class="mr-2">
+                                            <i class="mdi mdi-book-open-page-variant"></i>
+                                        </span>Changelog
+                                    </a>
+        
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end left-sidebar-->
+
+                        <div class="page-content">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="p-lg-1">
+                                        <h3 class="mt-0 mb-2 font-weight-bold">Vertical Layouts</h3>
+
+                                        <hr/>
+
+                                        <p>
+                                            You can change or customize the left side navigation very easily. Following guide would help you to do that.
+                                        </p>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-semibold">How to add new menu items/change menu items?</h4>
+
+                                        <p>
+                                            In order to add, change or remove menu items from the left side navigation, simply edit in file
+                                            <code>src/partials/left-sidebar.html</code>. The change would reflect in all the html files automatically. 
+                                            We are using <a href="https://www.npmjs.com/package/gulp-file-include"><code>gulp-file-include</code></a> which would actually take 
+                                            care of including the <code>left-sidebar.html</code> file content in all the html pages.
+                                        </p>
+                                    </div>
+
+                                    <div class="p-lg-1 mt-1">
+                                        <h4 class="mt-0 mb-2 font-weight-semibold">How to change width?</h4>
+                                        <p>In order to change the width of left side navigation bar, open a file 
+                                            <code>src/scss/_theme-mode.scss</code> and change the value of variable 
+                                            <code>--#{$prefix}leftbar-width:</code>. The default value is set to <code>240px</code>.
+                                        </p>
+                                    </div>
+
+                                    <div class="row mb-2 mt-4">
+                                        <div class="col">
+                                            <h4 class="mt-0 mb-2 font-weight-semibold">How to use pre-built layouts?</h4>
+                                            <p>
+                                                Each of the layout options is provided below with steps you would need to perform:
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="img-thumbnail p-2 text-center mb-3">
+                                                <img src="assets/images/demo/compact.png" alt="image" class="img-fluid shadow-sm"/>
+                                                <h5 class="font-weight-semibold mt-3">Small Sidebar</h5>
+                                                Keep your body element with attribute <code>data-sidenav-size="compact"</code> E.g. <code> &lt;html lang="en" data-sidenav-size="compact"&gt;</code> to have small sidebar.
+                                            </div>
+                                        </div> <!-- end col -->
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="img-thumbnail p-2 text-center mb-3">
+                                                <img src="assets/images/demo/sidebar-light.png" alt="image" class="img-fluid shadow-sm"/>
+                                                <h5 class="font-weight-semibold mt-3">Light Sidebar & Topbar Light</h5>
+                                                Keep your body element with attribute <code>data-menu-color="light"</code> E.g. <code> &lt;html lang="en" data-menu-color="light"&gt;</code> to have dark sidebar. Add attribute <code>data-topbar-color="light"</code> to have light topnav.
+                                            </div>
+                                        </div> <!-- end col -->
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="img-thumbnail p-2 text-center mb-3">
+                                                <img src="assets/images/demo/sm.png" alt="image" class="img-fluid shadow-sm"/>
+                                                <h5 class="font-weight-semibold mt-3">Collapsed Sidebar</h5>
+                                                Keep your body element with class <code>enlarged</code> and data attribute <code>data-sidenav-size="condensed"</code> E.g. <code> &lt;html lang="en" data-sidenav-size="condensed"&gt;</code> to have collapsed sidebar.
+                                            </div>
+                                        </div> <!-- end col -->
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="img-thumbnail p-2 text-center mb-3">
+                                                <img src="assets/images/demo/boxed.png" alt="image" class="img-fluid shadow-sm"/>
+                                                <h5 class="font-weight-semibold mt-3">Boxed Layout</h5>
+                                                Keep your body element with class <code>enlarged boxed-layout</code> and data attribute <code>data-layout-mode="boxed"</code> E.g. <code> &lt;html lang="en" data-layout-mode="boxed"&gt;</code> to have boxed layout.
+                                            </div>
+                                        </div> <!-- end col -->
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="img-thumbnail p-2 text-center">
+                                                <img src="assets/images/demo/light.png" alt="image" class="img-fluid shadow-sm"/>
+                                                <h5 class="font-weight-semibold mt-3">Unsticky Layout</h5>
+                                                Keep your body element with class <code>unsticky-layout</code> E.g. <code> &lt;html lang="en" data-layout-position="scrollable"&gt;</code> to have unsticky layout.
+                                            </div>
+                                        </div> <!-- end col -->
+
+                                    </div>
+                                    <!-- end row -->
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end page-wrapper-->
+
+                    
+                </div>
+
+            </div>
+            <!-- content -->
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            2015 - 2020 © Velonic - by Techzaa
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="#" target="_blank">About</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- END wrapper -->
+
+    <!-- bundle -->
+    <script src="assets/js/app.min.js"></script>
+</body>
+
+</html>
