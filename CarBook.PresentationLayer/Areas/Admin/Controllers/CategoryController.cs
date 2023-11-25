@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarBook.PresentationLayer.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controlller]/[action]")]
+    [Route("[area]/[controller]/[action]")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -42,7 +42,24 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
         public IActionResult AddCategory(CategoryDto categoryDto)
         {
             var newCategory = _mapper.Map<Category>(categoryDto);
+            newCategory.Status = true;
             _categoryService.TInsert(newCategory);
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult UpdateCategory(int id)
+        {
+            var category = _categoryService.TGetByID(id);
+            var value = _mapper.Map<CategoryDto>(category);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCategory(CategoryDto categoryDto)
+        {
+            var updateCategory = _mapper.Map<Category>(categoryDto);
+            _categoryService.TUpdate(updateCategory);
             return RedirectToAction("Index");
         }
     }

@@ -1,12 +1,13 @@
-﻿@using CarBook.DtoLayer.DTOs.BrandDtos
-@model List<BrandDto>
+﻿@using CarBook.DtoLayer.DTOs.CategoryDtos
+@model List<CategoryDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 
-<h1>Markalar</h1>
+<h3>Kategoriler</h3>
+
 @{
     int count = 0;
 }
@@ -14,7 +15,7 @@
     <table class="table table-hover">
         <tr>
             <th>#</th>
-            <th>Marka</th>
+            <th>Kategori</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -22,21 +23,21 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.BrandName</td>
+                <td>@item.CategoryName</td>
                 <td>
-                    <button onclick="deleteBrand(@item.BrandID)" type="submit" class="btn btn-outline-danger">Sil</button>
-                    <a asp-action="UpdateBrand" asp-route-id="@item.BrandID" class="btn btn-outline-info">Düzenle</a>
+                    <button onclick="deleteCategory(@item.CategoryID)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdateCategory" asp-route-id="@item.CategoryID" class="btn btn-outline-info">Düzenle</a>
 
                 </td>
             </tr>
         }
     </table>
     <br />
-    <a asp-action="AddBrand" asp-controller="Brand" class="btn btn-outline-dark">Yeni Marka Ekle</a>
+    <a asp-action="AddCategory" asp-controller="Category" class="btn btn-outline-dark">Yeni Kategori Ekle</a>
 </div>
 
 <script>
-    function deleteBrand(id) {
+    function deleteCategory(id) {
         Swal.fire({
 
             title: 'Silmek istediğinize emin misiniz?',
@@ -47,7 +48,7 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/Brand/DeleteBrand?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Admin/Category/DeleteCategory?id=" + id; // Yönlendirilecek URL'yi buraya yazın
             }
         });
     }

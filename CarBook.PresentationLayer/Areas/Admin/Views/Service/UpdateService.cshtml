@@ -1,0 +1,30 @@
+﻿@using CarBook.DtoLayer.DTOs.ServiceDtos
+@model ServiceDto
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Hizmet Güncelleme</h3>
+
+<form method="post">
+
+    <input type="hidden" asp-for="ServiceId" />
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="Title" class="form-control" id="floatingInput" placeholder="Başlık" required />
+        <label for="floatingInput">Başlık</label>
+    </div>
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="Description" class="form-control" id="floatingInput" placeholder="Açıklama" required />
+        <label for="floatingInput">Açıklama</label>
+    </div>
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="Icon" class="form-control" id="floatingInput" placeholder="İkon" required />
+        <label for="floatingInput">İkon</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

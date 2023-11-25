@@ -1,0 +1,30 @@
+﻿@using CarBook.DtoLayer.DTOs.ContactDtos
+@model ContactDto
+
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3> İletişim Bilgileri Güncelleme</h3>
+
+<form method="post">
+    <input type="hidden" asp-for="ContactId" />
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="Address" class="form-control" id="floatingInput" placeholder="Adres" required />
+        <label for="floatingInput">Adres</label>
+    </div>
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="Phone" class="form-control" id="floatingInput" placeholder="Telefon" required />
+        <label for="floatingInput">Telefon</label>
+    </div>
+    <div class="form-floating mb-3">
+
+        <input type="email" asp-for="Email" class="form-control" id="floatingInput" placeholder="Email" required />
+        <label for="floatingInput">Email</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

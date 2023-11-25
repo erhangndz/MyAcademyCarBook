@@ -5,6 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+
 <h1>Araç Açıklamaları</h1>
 @{
     int count = 0;
@@ -24,7 +25,7 @@
             <td>@item.Car.Brand.BrandName  @item.Car.CarName</td>
             <td>@item.Description.Substring(0,50) ... </td>
             <td>
-                <a asp-action="DeleteCarDetail" asp-route-id="@item.CarDetailId" class="btn btn-outline-danger">Sil</a>
+                <button onclick="deleteCarDetail(@item.CarDetailId)" type="submit" class="btn btn-outline-danger">Sil</button>
                 <a asp-action="UpdateCarDetail" asp-route-id="@item.CarDetailId" class="btn btn-outline-info">Düzenle</a>
             </td>
         </tr>
@@ -33,3 +34,20 @@
 <br />
 <a asp-action="AddCarDetail" asp-controller="CarDetail" class="btn btn-dark">Yeni Araç Açıklaması Ekle</a>
 
+<script>
+    function deleteCarDetail(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/CarDetail/DeleteCarDetail?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>

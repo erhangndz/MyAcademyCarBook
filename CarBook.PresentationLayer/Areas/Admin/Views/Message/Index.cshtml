@@ -1,12 +1,12 @@
-﻿@using CarBook.DtoLayer.DTOs.BrandDtos
-@model List<BrandDto>
+﻿@using CarBook.DtoLayer.DTOs.MessageDtos
+@model List<MessageDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<br />
+<h3>Gelen Mesajlar</h3>
 
-
-<h1>Markalar</h1>
 @{
     int count = 0;
 }
@@ -14,7 +14,10 @@
     <table class="table table-hover">
         <tr>
             <th>#</th>
-            <th>Marka</th>
+            <th>Ad Soyad</th>
+            <th>Email</th>
+            <th>Konu</th>
+            <th>Mesaj</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -22,21 +25,24 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.BrandName</td>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Subject</td>
+                <td>@item.MessageBody</td>
                 <td>
-                    <button onclick="deleteBrand(@item.BrandID)" type="submit" class="btn btn-outline-danger">Sil</button>
-                    <a asp-action="UpdateBrand" asp-route-id="@item.BrandID" class="btn btn-outline-info">Düzenle</a>
+                    <button onclick="deleteMessage(@item.MessageId)" type="submit" class="btn btn-outline-danger">Sil</button>
+                   
 
                 </td>
             </tr>
         }
     </table>
     <br />
-    <a asp-action="AddBrand" asp-controller="Brand" class="btn btn-outline-dark">Yeni Marka Ekle</a>
+   
 </div>
 
 <script>
-    function deleteBrand(id) {
+    function deleteMessage(id) {
         Swal.fire({
 
             title: 'Silmek istediğinize emin misiniz?',
@@ -47,7 +53,7 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/Brand/DeleteBrand?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Admin/Message/DeleteMessage?id=" + id; // Yönlendirilecek URL'yi buraya yazın
             }
         });
     }

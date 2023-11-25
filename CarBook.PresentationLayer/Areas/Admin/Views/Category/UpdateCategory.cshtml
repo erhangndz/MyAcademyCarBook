@@ -1,0 +1,19 @@
+﻿@using CarBook.DtoLayer.DTOs.CategoryDtos
+@model CategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Kategori Güncelleme</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="CategoryID" />
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="CategoryName" class="form-control" id="floatingInput" placeholder="Kategori Adı" required />
+        <label for="floatingInput">Kategori Adı</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

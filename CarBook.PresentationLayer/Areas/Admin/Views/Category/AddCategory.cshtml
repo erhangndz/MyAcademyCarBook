@@ -1,0 +1,18 @@
+﻿@using CarBook.DtoLayer.DTOs.CategoryDtos
+@model CategoryDto
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kategori Ekleme </h3>
+
+<form method="post">
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="CategoryName" class="form-control" id="floatingInput" placeholder="Kategori Adı" required />
+        <label for="floatingInput">Kategori Adı</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>
