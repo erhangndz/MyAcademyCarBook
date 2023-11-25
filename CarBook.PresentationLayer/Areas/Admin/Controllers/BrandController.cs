@@ -1,5 +1,7 @@
-﻿using CarBook.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using CarBook.BusinessLayer.Abstract;
 using CarBook.DataAccessLayer.Concrete;
+using CarBook.DtoLayer.DTOs.BrandDtos;
 using CarBook.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -11,15 +13,18 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
     public class BrandController : Controller
     {
         private readonly IBrandService _brandService;
+        private readonly IMapper _mapper;
 
-        public BrandController(IBrandService brandService)
+        public BrandController(IBrandService brandService, IMapper mapper)
         {
             _brandService = brandService;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var values = _brandService.TGetList();
+            var brands = _brandService.TGetList();
+            var values = _mapper.Map<List<BrandDto>>(brands);
             return View(values);
         }
 
@@ -28,10 +33,10 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddBrand(Brand brand)
+        public IActionResult AddBrand(BrandDto brandDto)
         {
-            brand.Status = true;
-            _brandService.TInsert(brand);
+            brandDto.Status = true;
+            _brandService.TInsert(_mapper.Map<Brand>(brandDto));
             return RedirectToAction("Index","Brand");
         }
 
@@ -44,14 +49,15 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult UpdateBrand(int id)
         {
-            var value = _brandService.TGetByID(id);
+            var brand = _brandService.TGetByID(id);
+            var value = _mapper.Map<BrandDto>(brand);
             return View(value);
         }
         [HttpPost]
-        public IActionResult UpdateBrand(Brand brand)
+        public IActionResult UpdateBrand(BrandDto brandDto)
         {
-            brand.Status = true;
-            _brandService.TUpdate(brand);
+            brandDto.Status = true;
+            _brandService.TUpdate(_mapper.Map<Brand>(brandDto));
             return RedirectToAction("Index");
         }
 
@@ -60,6 +66,7 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
             ViewData["CurrentFilter"] = name;
 
             var values = _brandService.TGetList();
+
 
             if (!string.IsNullOrEmpty(name))
             {

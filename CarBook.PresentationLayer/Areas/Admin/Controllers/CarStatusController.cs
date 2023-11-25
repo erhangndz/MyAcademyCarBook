@@ -1,4 +1,7 @@
-﻿using CarBook.BusinessLayer.Abstract;
+﻿using AutoMapper;
+using CarBook.BusinessLayer.Abstract;
+using CarBook.DtoLayer.DTOs.CarDtos;
+using CarBook.DtoLayer.DTOs.CarStatusDtos;
 using CarBook.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,16 +13,19 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
     {
         private readonly ICarStatusService _carStatusService;
         private readonly ICarService _carService;
+        private readonly IMapper _mapper;
 
-        public CarStatusController(ICarStatusService carStatusService, ICarService carService)
+        public CarStatusController(ICarStatusService carStatusService, ICarService carService, IMapper mapper)
         {
             _carStatusService = carStatusService;
             _carService = carService;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            var values = _carStatusService.TGetList();
+            var carStatuses = _carStatusService.TGetList();
+            var values = _mapper.Map<List<CarStatusDto>>(carStatuses);
             return View(values);
         }
 
@@ -35,28 +41,32 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCarStatus(CarStatus carStatus)
+        public IActionResult AddCarStatus(CarStatusDto carStatusDto)
         {
-            _carStatusService.TInsert(carStatus);
+            _carStatusService.TInsert(_mapper.Map<CarStatus>(carStatusDto));
             return RedirectToAction("Index");
         }
 
         public ActionResult UpdateCarStatus(int id)
         {
-            var values = _carStatusService.TGetByID(id);
+            var carStatus = _carStatusService.TGetByID(id);
+            var values = _mapper.Map<CarStatusDto>(carStatus);
             return View(values);
         }
 
         [HttpPost]
-        public IActionResult UpdateCarStatus(CarStatus carStatus)
+        public IActionResult UpdateCarStatus(CarStatusDto carStatusDto)
         {
-            _carStatusService.TUpdate(carStatus);
+            var updateCarStatus = _mapper.Map<CarStatus>(carStatusDto);
+            _carStatusService.TUpdate(updateCarStatus);
             return RedirectToAction("Index");
         }
 
-        public IActionResult CarStatusDetails(int id)
+        public IActionResult CarStatusDetails(int id,string status)
         {
-            var values = _carService.TGetAll().Where(x => x.CarStatusID == id).ToList();
+            ViewBag.status = status.Substring(5);
+            var cars = _carService.TGetAll().Where(x => x.CarStatusID == id).ToList();
+            var values = _mapper.Map<List<CarDto>>(cars);
             return View(values);
         }
 

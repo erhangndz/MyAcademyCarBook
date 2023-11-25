@@ -1,5 +1,5 @@
-﻿@using CarBook.EntityLayer.Concrete;
-@model Brand
+﻿@using CarBook.DtoLayer.DTOs.BrandDtos
+@model BrandDto
 @{
     ViewData["Title"] = "UpdateBrand";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -9,8 +9,9 @@
 
 <form method="post">
     <input type="hidden" asp-for="BrandID" />
-   <label>Marka Adı</label>
-    <input type="text" asp-for="BrandName" class="form-control" style="border:2px solid #2222" placeholder="Marka Adı" required />
+    <input type="text" asp-for="BrandName" class="form-control" id="floatingBrand" placeholder="Marka Adı" required />
+    <label for="floatingBrand">Marka Adı</label>
+    </div>
     <br />
     <button type="submit" class="btn btn-outline-dark">Kaydet</button>
 </form>

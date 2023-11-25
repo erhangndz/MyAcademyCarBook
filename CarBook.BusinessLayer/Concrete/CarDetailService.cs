@@ -14,16 +14,23 @@ namespace CarBook.BusinessLayer.Concrete
 	public class CarDetailService : ICarDetailService
 	{
 		private readonly IGenericDal<CarDetail> _carDetailDal;
+        private readonly Context _context;
 
-		public CarDetailService(IGenericDal<CarDetail> carDetailDal)
+		public CarDetailService(IGenericDal<CarDetail> carDetailDal,Context context)
 		{
 			_carDetailDal = carDetailDal;
+			_context = context;
 		}
 
-		public CarDetail GetDetailByCarId(int id)
+        public List<CarDetail> GetAll()
+        {
+            return _context.CarDetails.Include(x=>x.Car).ThenInclude(x=>x.Brand).ToList();
+        }
+
+        public CarDetail GetDetailByCarId(int id)
 		{
-			Context context = new();
-			return context.CarDetails.Include(x => x.Car).ThenInclude(x=>x.Brand).FirstOrDefault(x => x.CarId == id);
+			
+			return _context.CarDetails.Include(x => x.Car).ThenInclude(x=>x.Brand).FirstOrDefault(x => x.CarId == id);
 		}
 
 		public void TDelete(int id)

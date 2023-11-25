@@ -10,5 +10,6 @@ namespace CarBook.BusinessLayer.Abstract
 	public interface ICarDetailService:IGenericService<CarDetail>
 	{
 		CarDetail GetDetailByCarId(int id);
+		List<CarDetail> GetAll();
 	}
 }

@@ -1,23 +1,49 @@
-﻿@using CarBook.EntityLayer.Concrete;
-@model List<Car>
+﻿@using CarBook.DtoLayer.DTOs.CarDtos
+@model List<CarDto>
 @{
     ViewData["Title"] = "CarStatusDetails";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-@foreach (var item in Model)
-{
-    
-
-<div class="container">
-    <label>Araba Modeli</label>
-    <input type="text" asp-for="@item.CarName" class="form-control" />
-    <br />
-    <label>Model Yılı</label>
-    <input type="text" asp-for="@item.Year" class="form-control" />
-    <br />
-    <label>Vites Türü</label>
-    <input type="text" asp-for="@item.Gear" class="form-control" />
-    <br />
-</div>
+<h1> @ViewBag.status Olan Araçlar</h1>
+@{
+    int count = 0;
 }
+<div class="container">
+
+    @if (Model.Any())
+    {
+        <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Kategori</th>
+                <th>Vites Türü</th>
+                <th>Yıl</th>
+                <th>Araba Durumu</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th>@count</th>
+                    <td>@item.Brand.BrandName</td>
+                    <td>@item.CarName</td>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.Gear</td>
+                    <td>@item.Year</td>
+                    <td>@item.CarStatus.StatusName</td>
+
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-primary" role="alert">
+            @ViewBag.status olan araç bulunamadı. Geri Dönmek için  <a href="/Admin/CarStatus/Index" class="alert-link">tıklayın</a>
+        </div>
+    }
+</div>

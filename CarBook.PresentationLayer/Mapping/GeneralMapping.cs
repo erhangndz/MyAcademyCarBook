@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CarBook.DtoLayer.DTOs.BrandDtos;
+using CarBook.DtoLayer.DTOs.CarDetailDtos;
 using CarBook.DtoLayer.DTOs.CarDtos;
 using CarBook.DtoLayer.DTOs.CarStatusDtos;
 using CarBook.DtoLayer.DTOs.CategoryDtos;
@@ -19,6 +20,7 @@ namespace CarBook.PresentationLayer.Mapping
             CreateMap<CarStatusDto,CarStatus>().ReverseMap();
             CreateMap<CategoryDto,Category>().ReverseMap();
             CreateMap<LocationDto,Location>().ReverseMap();
+            CreateMap<CarDetailDto,CarDetail>().ReverseMap();
         }
     }
 }

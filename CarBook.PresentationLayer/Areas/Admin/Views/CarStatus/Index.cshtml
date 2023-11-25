@@ -1,4 +1,5 @@
-﻿@model List<CarStatus>
+﻿@using CarBook.DtoLayer.DTOs.CarStatusDtos
+@model List<CarStatusDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -26,7 +27,7 @@
                 <td>
                     <button onclick="deleteCarStatus(@item.CarStatusID)" type="submit" class="btn btn-outline-danger">Sil</button>
                     <a asp-action="UpdateCarStatus" asp-route-id="@item.CarStatusID" class="btn btn-outline-info">Düzenle</a>
-                    <a asp-action="CarStatusDetails" asp-route-id="@item.CarStatusID" class="btn btn-outline-secondary">Detaylar</a>
+                    <a asp-action="CarStatusDetails" asp-route-id="@item.CarStatusID" asp-route-status="@item.StatusName" class="btn btn-outline-secondary">Detaylar</a>
 
                 </td>
             </tr>

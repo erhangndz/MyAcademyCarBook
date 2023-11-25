@@ -29,7 +29,8 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var values = _carService.TGetAll();
+            var cars = _carService.TGetAll();
+           var values = _mapper.Map<List<CarDto>>(cars);
             return View(values);
         }
 
@@ -64,6 +65,45 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
 
             _carService.TInsert(newCar);
             return RedirectToAction("Index");
+
+            
         }
+
+        [HttpGet]
+        public IActionResult UpdateCar(int id)
+        {
+            ViewBag.brands = new List<SelectListItem>(from x in _brandService.TGetList()
+                                                      select new SelectListItem
+                                                      {
+                                                          Text = x.BrandName,
+                                                          Value = x.BrandID.ToString()
+                                                      }).ToList();
+
+            ViewBag.category = new List<SelectListItem>(from x in _categoryService.TGetList()
+                                                        select new SelectListItem
+                                                        {
+                                                            Text = x.CategoryName,
+                                                            Value = x.CategoryID.ToString()
+                                                        }).ToList();
+
+            ViewBag.carStatus = new List<SelectListItem>(from x in _carStatusService.TGetList()
+                                                         select new SelectListItem
+                                                         {
+                                                             Text = x.StatusName,
+                                                             Value = x.CarStatusID.ToString()
+                                                         }).ToList();
+            var car =  _carService.TGetByID(id);
+            var value = _mapper.Map<CarDto>(car);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCar(CarDto carDto)
+        {
+            var updateCar= _mapper.Map<Car>(carDto);
+            _carService.TUpdate(updateCar);
+            return RedirectToAction("Index");
+        }
+
     }
 }

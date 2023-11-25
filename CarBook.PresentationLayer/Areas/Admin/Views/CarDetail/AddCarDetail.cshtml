@@ -1,0 +1,26 @@
+﻿@using CarBook.DtoLayer.DTOs.CarDetailDtos
+@model CarDetailDto
+@{
+    ViewData["Title"] = "AddCarDetail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Araç Açıklaması Ekle</h1>
+
+<form method="post">
+    <div class="form-floating mb-3">
+
+        <div class="form-floating mb-3">
+            @Html.DropDownListFor(x => x.CarId, (List<SelectListItem>)ViewBag.car, "Araç Seçiniz", new { @class = "form-control", id = "floatingCar", placeholder = "Marka" })
+            <label for="floatingCar">Araç Seçin</label>
+        </div>
+
+        <div class="mb-3">
+            <label for="floatingDescription">Açıklama</label>
+            <textarea type="text" asp-for="Description" class="form-control" id="floatingDescription" placeholder="Açıklamayı Yazınız" rows="20" required> </textarea>
+        
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>
