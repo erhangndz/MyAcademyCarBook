@@ -1,0 +1,57 @@
+﻿@using CarBook.DtoLayer.DTOs.CarDtos
+@model List<CarDto>
+
+@{
+    int count = 0;
+}
+<div class="col-xl-12">
+    <!-- Todo-->
+    <div class="card">
+        <div class="card-body p-0">
+            <div class="p-3">
+                <div class="card-widgets">
+                    <a href="javascript:;" data-bs-toggle="reload"><i class="ri-refresh-line"></i></a>
+                    <a data-bs-toggle="collapse" href="#yearly-sales-collapse" role="button" aria-expanded="false" aria-controls="yearly-sales-collapse"><i class="ri-subtract-line"></i></a>
+                    <a href="#" data-bs-toggle="remove"><i class="ri-close-line"></i></a>
+                </div>
+                <h5 class="header-title mb-0">Araçlar</h5>
+            </div>
+
+            <div id="yearly-sales-collapse" class="collapse show">
+
+                <div class="table-responsive">
+                    <table class="table table-nowrap table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Araç</th>
+                                <th>Model Yılı</th>
+                                <th>Vites</th>
+                                <th>Yakıt</th>
+                                <th>Günlük Kirası</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                count++; 
+
+                            <tr>
+                                <td>@count</td>
+                                <td><img src="@item.Image" style="height:50px;width:75px;border-radius:50%" />  @item.Brand.BrandName  @item.CarName</td>
+                                <td>@item.Year</td>
+                                <td>@item.Gear</td>
+                                <td>@item.GasType</td>
+                                <td><span class="badge bg-info-subtle text-info">@item.RentPrice ₺</span></td>
+                               
+                            </tr>
+                   }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end card-->
+</div> 

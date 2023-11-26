@@ -14,8 +14,8 @@
     <table class="table table-hover">
         <tr>
             <th>#</th>
-            <th>Marka</th>
-            <th>Model</th>
+            <th>Marka-Model</th>
+          
             <th>Kategori</th>
             <th>Vites Türü</th>
             <th>Yıl</th>
@@ -27,8 +27,8 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.Brand.BrandName</td>
-                <td>@item.CarName</td>
+                <td><img src="@item.Image" style="height:50px;width:75px;border-radius:50%" />  @item.Brand.BrandName   @item.CarName</td>
+              
                 <td>@item.Category.CategoryName</td>
                 <td>@item.Gear</td>
                 <td>@item.Year</td>
