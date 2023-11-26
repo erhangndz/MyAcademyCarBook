@@ -1,6 +1,11 @@
-﻿<div class="img bg-wrap text-center py-4" style="background-image: url(/sidebar-09/images/bg_1.jpg);">
-    <div class="user-logo">
-        <div class="img" style="background-image: url(https://e7.pngegg.com/pngimages/178/595/png-clipart-user-profile-computer-icons-login-user-avatars-monochrome-black-thumbnail.png);"></div>
-        <h3>@ViewBag.name</h3>
-    </div>
-</div>
+﻿<a class="nav-link dropdown-toggle arrow-none nav-user" data-bs-toggle="dropdown" href="#" role="button"
+   aria-haspopup="false" aria-expanded="false">
+    <span class="account-user-avatar">
+        <img src="@ViewBag.image" alt="user-image" width="32" class="rounded-circle">
+    </span>
+    <span class="d-lg-block d-none">
+        <h5 class="my-0 fw-normal">
+            @ViewBag.name <i class="ri-arrow-down-s-line d-none d-sm-inline-block align-middle"></i>
+        </h5>
+    </span>
+</a>

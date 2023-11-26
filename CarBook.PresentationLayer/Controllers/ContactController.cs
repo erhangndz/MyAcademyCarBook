@@ -1,9 +1,11 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using CarBook.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.PresentationLayer.Controllers
 {
+    [AllowAnonymous]
     public class ContactController : Controller
     {
         private readonly IGenericService<Message> _messageService;

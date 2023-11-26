@@ -1,5 +1,6 @@
 ﻿using CarBook.BusinessLayer.Abstract;
 using CarBook.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,6 +11,7 @@ using System.Text.Json;
 
 namespace CarBook.PresentationLayer.Controllers
 {
+    [AllowAnonymous]
     public class DefaultController : Controller
     {
         private readonly ICarService _carService;

@@ -18,7 +18,7 @@ namespace CarBook.PresentationLayer.ViewComponents.Dashboard
 
         public IViewComponentResult Invoke()
         {
-            var cars = _carService.TGetAll();
+            var cars = _carService.GetLast5Cars();
             var values = _mapper.Map<List<CarDto>>(cars);
             return View(values);
         }

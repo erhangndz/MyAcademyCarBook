@@ -6,6 +6,7 @@ using CarBook.DataAccessLayer.Concrete;
 using CarBook.DataAccessLayer.Repositories;
 using CarBook.EntityLayer.Concrete;
 using CarBook.PresentationLayer.Models;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -33,7 +34,23 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.WriteIndented = true;
 });
+builder.Services.AddAuthentication(options =>
+{
+    options.RequireAuthenticatedSignIn = true;
+    
+    
+});
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = new PathString("/Login/Index");
+    options.LogoutPath = new PathString("/Login/Logout");
+});
+
+builder.Services.AddMvcCore(config =>
+{
+    config.Filters.Add(new AuthorizeFilter());
+});
 
 builder.Services.AddAutoMapper(typeof(Program));
 

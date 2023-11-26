@@ -2,11 +2,13 @@
 using CarBook.BusinessLayer.Abstract;
 using CarBook.DtoLayer.DTOs.ReviewDtos;
 using CarBook.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
 
 namespace CarBook.PresentationLayer.Controllers
 {
+    [AllowAnonymous]
     public class CarsController : Controller
     {
         private readonly ICarService _carService;

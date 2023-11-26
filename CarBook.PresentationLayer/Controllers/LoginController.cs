@@ -1,10 +1,13 @@
 ﻿using CarBook.EntityLayer.Concrete;
 using CarBook.PresentationLayer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.PresentationLayer.Controllers
 {
+    [AllowAnonymous]
+    [Route("[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
@@ -26,7 +29,7 @@ namespace CarBook.PresentationLayer.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Car");
+                return RedirectToAction("Index", "Dashboard", new{ area="Admin"});
             }
             else
             {
@@ -34,6 +37,12 @@ namespace CarBook.PresentationLayer.Controllers
             }
 
             return View();
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index","Default");
         }
     }
 }
