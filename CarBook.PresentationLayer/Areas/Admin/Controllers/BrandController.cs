@@ -37,7 +37,7 @@ namespace CarBook.PresentationLayer.Areas.Admin.Controllers
         {
             brandDto.Status = true;
             _brandService.TInsert(_mapper.Map<Brand>(brandDto));
-            return RedirectToAction("Index","Brand");
+            return RedirectToAction("Index");
         }
 
         public IActionResult DeleteBrand(int id)

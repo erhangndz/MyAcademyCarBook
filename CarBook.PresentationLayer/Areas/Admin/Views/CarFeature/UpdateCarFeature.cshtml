@@ -1,0 +1,167 @@
+﻿@using CarBook.DtoLayer.DTOs.CarFeatureDtos
+@model CarFeatureDto
+@{
+    ViewData["Title"] = "UpdateCarFeature";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Araç Özelliği Düzenleme</h3>
+
+<form method="post">
+    <div class="form-floating mb-3 text-center col-lg-12">
+        @Html.DropDownListFor(x => x.CarId, (List<SelectListItem>)ViewBag.cars, "Araç Seçiniz", new { @class = "form-control", id = "floatingBrand", placeholder = "Marka" })
+        <label for="floatingBrand">Araç</label>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+
+
+            <input type="hidden" asp-for="CarFeatureId" />
+            <input type="hidden" asp-for="FeatureName1" value="Otomatik Klima">
+            <input type="hidden" asp-for="FeatureName2" value="Çocuk Koltuğu">
+            <input type="hidden" asp-for="FeatureName3" value="GPS">
+            <input type="hidden" asp-for="FeatureName4" value="Bagaj">
+            <input type="hidden" asp-for="FeatureName5" value="Mp3 Çalar">
+            <input type="hidden" asp-for="FeatureName6" value="Hava Yastığı">
+            <input type="hidden" asp-for="FeatureName7" value="Uyku Yatağı">
+            <input type="hidden" asp-for="FeatureName8" value="Bluetooth">
+            <input type="hidden" asp-for="FeatureName9" value="Yol Bilgisayarı">
+            <input type="hidden" asp-for="FeatureName10" value="Hands-Free Bağlantı">
+            <input type="hidden" asp-for="FeatureName11" value="Hız Sabitleme">
+            <input type="hidden" asp-for="FeatureName12" value="Araç Kiti">
+            <input type="hidden" asp-for="FeatureName13" value="Uzaktan Kilit">
+            <input type="hidden" asp-for="FeatureName14" value="Şerit Takip">
+            <input type="hidden" asp-for="FeatureName15" value="Yol Yardım">
+
+
+
+
+
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature1" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Otomatik Klima
+                </label>
+            </div>
+            <br />
+
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature2" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Çocuk Koltuğu
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature3" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    GPS
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature4" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Bagaj
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature5" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Mp3 Çalar
+                </label>
+            </div>
+            <br />
+
+
+
+
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature6" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Hava Yastığı
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature7" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Uyku Yatağı
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature8" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Bluetooth
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature9" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Yol Bilgisayarı
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature10" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Hands-Free Bağlantı
+                </label>
+            </div>
+            <br />
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature11" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Hız Sabitleme
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature12" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Araç Kiti
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature13" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Uzaktan Kilit
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature14" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Şerit Takip
+                </label>
+            </div>
+            <br />
+            <div class="form-check form-switch">
+                <input type="checkbox" class="form-check-input" asp-for="HasFeature15" id="customSwitch1">
+                <label class="form-check-label" for="customSwitch1">
+                    Yol Yardım
+                </label>
+            </div>
+            <br />
+
+        </div>
+    </div>
+    <br />
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+
+</form>

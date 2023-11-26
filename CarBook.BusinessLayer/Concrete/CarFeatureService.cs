@@ -14,16 +14,18 @@ namespace CarBook.BusinessLayer.Concrete
 	public class CarFeatureService : ICarFeatureService
 	{
 		private readonly IGenericDal<CarFeature> _carFeatureDal;
+		private readonly Context _context;
 
-		public CarFeatureService(IGenericDal<CarFeature> carFeatureDal)
-		{
-			_carFeatureDal = carFeatureDal;
-		}
+        public CarFeatureService(IGenericDal<CarFeature> carFeatureDal, Context context)
+        {
+            _carFeatureDal = carFeatureDal;
+            _context = context;
+        }
 
-		public List<CarFeature> GetFeaturesByCarId(int id)
+        public List<CarFeature> GetFeaturesByCarId(int id)
 		{
-			Context context = new();
-			return context.CarFeatures.Include(x => x.Car).Where(x => x.CarId == id).ToList();
+			
+			return _context.CarFeatures.Include(x => x.Car).Where(x => x.CarId == id).ToList();
 		}
 
 		public void TDelete(int id)
@@ -38,7 +40,7 @@ namespace CarBook.BusinessLayer.Concrete
 
 		public List<CarFeature> TGetList()
 		{
-			return _carFeatureDal.GetList();
+			return _context.CarFeatures.Include(x=>x.Car).ThenInclude(x=>x.Brand).ToList();
 		}
 
 		public void TInsert(CarFeature entity)

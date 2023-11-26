@@ -4,10 +4,11 @@
     ViewData["Title"] = "UpdateBrand";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h1>Markayı Güncelle</h1>
+<br />
+<h3>Markayı Güncelle</h3>
 
 <form method="post">
+    <div class="form-floating mb-3">
     <input type="hidden" asp-for="BrandID" />
     <input type="text" asp-for="BrandName" class="form-control" id="floatingBrand" placeholder="Marka Adı" required />
     <label for="floatingBrand">Marka Adı</label>

@@ -4,6 +4,7 @@ using CarBook.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231126130731_mig_features_revised")]
+    partial class mig_features_revised
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,105 +247,7 @@ namespace CarBook.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FeatureName10")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName11")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName12")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName13")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName14")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName15")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName4")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName5")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName6")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName7")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName8")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FeatureName9")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("HasFeature1")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature10")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature11")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature12")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature13")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature14")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature15")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature2")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature3")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature4")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature5")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature6")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature7")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature8")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HasFeature9")
                         .HasColumnType("bit");
 
                     b.HasKey("CarFeatureId");

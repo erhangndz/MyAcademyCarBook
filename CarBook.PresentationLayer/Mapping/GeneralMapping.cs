@@ -2,6 +2,7 @@
 using CarBook.DtoLayer.DTOs.BrandDtos;
 using CarBook.DtoLayer.DTOs.CarDetailDtos;
 using CarBook.DtoLayer.DTOs.CarDtos;
+using CarBook.DtoLayer.DTOs.CarFeatureDtos;
 using CarBook.DtoLayer.DTOs.CarStatusDtos;
 using CarBook.DtoLayer.DTOs.CategoryDtos;
 using CarBook.DtoLayer.DTOs.ContactDtos;
@@ -29,6 +30,7 @@ namespace CarBook.PresentationLayer.Mapping
             CreateMap<ServiceDto,Service>().ReverseMap();
             CreateMap<TestimonialDto,Testimonial>().ReverseMap();
             CreateMap<ReviewDto, Review>().ReverseMap();
+            CreateMap<CarFeatureDto, CarFeature>().ReverseMap();
         }
     }
 }

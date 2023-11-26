@@ -1,0 +1,133 @@
+﻿@using CarBook.DtoLayer.DTOs.CarFeatureDtos
+@model List<CarFeatureDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Araç Özellikleri</h3>
+@{
+    int count = 0;
+    var checkStatus1 = "";
+    var checkStatus2 = "";
+    var checkStatus3= "";
+    var checkStatus4 = "";
+    var checkStatus5 = "";
+    var checkStatus6 = "";
+    var checkStatus7 = "";
+    var checkStatus8 = "";
+    var checkStatus9 = "";
+    var checkStatus10 = "";
+    var checkStatus11 = "";
+    var checkStatus12 = "";
+    var checkStatus13 = "";
+    var checkStatus14 = "";
+    var checkStatus15 = "";
+
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="responsive-table-plugin">
+                    <div class="table-rep-plugin">
+                        <div class="table-responsive" data-pattern="priority-columns">
+                            <table id="tech-companies-1" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Araç</th>
+                                        <th>Özellik 1</th>
+                                        <th>Özellik 2</th>
+                                        <th>Özellik 3</th>
+                                        <th>Özellik 4</th>
+                                        <th>Özellik 5</th>
+                                        <th>Özellik 6</th>
+                                        <th>Özellik 7</th>
+                                        <th>Özellik 8</th>
+                                        <th>Özellik 9</th>
+                                        <th>Özellik 10</th>
+                                        <th>Özellik 11</th>
+                                        <th>Özellik 12</th>
+                                        <th>Özellik 13</th>
+                                        <th>Özellik 14</th>
+                                        <th>Özellik 15</th>
+                                       
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        @if(item.HasFeature1==true){ checkStatus1 = "checked";}else{ checkStatus1 = ""; }
+                                        @if(item.HasFeature2==true){ checkStatus2 = "checked";}else{ checkStatus2 = ""; }
+                                        @if(item.HasFeature3==true){ checkStatus3 = "checked";}else{ checkStatus3 = ""; }
+                                        @if(item.HasFeature4==true){ checkStatus4 = "checked";}else{ checkStatus4 = ""; }
+                                        @if(item.HasFeature5==true){ checkStatus5 = "checked";}else{ checkStatus5 = ""; }
+                                        @if(item.HasFeature6==true){ checkStatus6 = "checked";}else{ checkStatus6 = ""; }
+                                        @if(item.HasFeature7==true){ checkStatus7 = "checked";}else{ checkStatus7 = ""; }
+                                        @if(item.HasFeature8==true){ checkStatus8 = "checked";}else{ checkStatus8 = ""; }
+                                        @if(item.HasFeature9==true){ checkStatus9 = "checked";}else{ checkStatus9 = ""; }
+                                        @if(item.HasFeature10==true){ checkStatus10 = "checked";}else{ checkStatus10 = ""; }
+                                        @if(item.HasFeature11==true){ checkStatus11 = "checked";}else{ checkStatus11 = ""; }
+                                        @if(item.HasFeature12==true){ checkStatus12 = "checked";}else{ checkStatus12 = ""; }
+                                        @if(item.HasFeature13==true){ checkStatus13 = "checked";}else{ checkStatus13 = ""; }
+                                        @if(item.HasFeature14==true){ checkStatus14 = "checked";}else{ checkStatus14 = ""; }
+                                        @if(item.HasFeature15==true){ checkStatus15 = "checked";}else{ checkStatus15 = ""; }
+                                        <tr>
+                                        <th>@count</th>
+                                        <td>@item.Car.Brand.BrandName  @item.Car.CarName</td>
+                                            <td>@item.FeatureName1 <span> <input type="checkbox" @checkStatus1 class="form-check-input" disabled /> </span></td>
+                                            <td>@item.FeatureName2 <input type="checkbox" @checkStatus2 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName3 <input type="checkbox" @checkStatus3 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName4 <input type="checkbox" @checkStatus4 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName5 <input type="checkbox" @checkStatus5 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName6 <input type="checkbox" @checkStatus6 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName7 <input type="checkbox" @checkStatus7 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName8 <input type="checkbox" @checkStatus8 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName9 <input type="checkbox" @checkStatus9 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName10 <input type="checkbox" @checkStatus10 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName11 <input type="checkbox" @checkStatus11 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName12 <input type="checkbox" @checkStatus12 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName13 <input type="checkbox" @checkStatus13 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName14 <input type="checkbox" @checkStatus14 class="form-check-input" disabled /> </td>
+                                            <td>@item.FeatureName15 <input type="checkbox" @checkStatus15 class="form-check-input" disabled /> </td>
+                                        <td>
+                                            <button class="btn btn-outline-danger" onclick="deleteCarFeature(@item.CarFeatureId)">Sil</button>
+                                            <a asp-action="UpdateCarFeature" asp-controller="CarFeature" asp-route-id="@item.CarFeatureId" class="btn btn-outline-info">Düzenle</a>
+                                        </td>
+                                        
+                                    </tr>
+                             }
+                                </tbody>
+                            </table>
+                        </div> <!-- end .table-responsive -->
+
+                    </div> <!-- end .table-rep-plugin-->
+                </div> <!-- end .responsive-table-plugin-->
+            </div>
+        </div> <!-- end card -->
+    </div> <!-- end col -->
+</div>
+
+                                        <a asp-action="AddCarFeature" asp-controller="CarFeature" class="btn btn-dark">Yeni Özellik Ekle</a>
+
+
+<script>
+    function deleteCarFeature(id) {
+        Swal.fire({
+
+            title: 'Silmek istediğinize emin misiniz?',
+            text: 'Bu öğeyi silerseniz geri alamazsınız!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sil',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Admin/CarFeature/DeleteCarFeature?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>

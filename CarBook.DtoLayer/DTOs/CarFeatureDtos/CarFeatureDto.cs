@@ -1,13 +1,15 @@
-﻿using System;
+﻿using CarBook.DtoLayer.DTOs.CarDtos;
+using CarBook.EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.EntityLayer.Concrete
+namespace CarBook.DtoLayer.DTOs.CarFeatureDtos
 {
-	public class CarFeature
-	{
+    public class CarFeatureDto
+    {
         public int CarFeatureId { get; set; }
         public string FeatureName1 { get; set; }
         public bool HasFeature1 { get; set; }
@@ -40,6 +42,6 @@ namespace CarBook.EntityLayer.Concrete
         public string FeatureName15 { get; set; }
         public bool HasFeature15 { get; set; }
         public int CarId { get; set; }
-        public Car Car { get; set; }
+        public CarDto Car { get; set; }
     }
 }

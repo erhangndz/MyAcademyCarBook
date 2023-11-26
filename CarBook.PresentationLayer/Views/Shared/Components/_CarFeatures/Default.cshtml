@@ -1,19 +1,144 @@
 ﻿@model List<CarFeature>
 @{
-    var color = "";
-    var status = "";
+    var color1 = "";
+    var status1 = "";
+    var color2 = "";
+    var status2 = "";
+    var color3 = "";
+    var status3 = "";
+    var color4 = "";
+    var status4 = "";
+    var color5 = "";
+    var status5 = "";
+    var color6 = "";
+    var status6 = "";
+    var color7 = "";
+    var status7 = "";
+    var color8 = "";
+    var status8 = "";
+    var color9 = "";
+    var status9 = "";
+    var color10 = "";
+    var status10 = "";
+    var color11 = "";
+    var status11 = "";
+    var color12 = "";
+    var status12 = "";
+    var color13 = "";
+    var status13 = "";
+    var color14 = "";
+    var status14 = "";
+    var color15 = "";
+    var status15 = "";
 
 }
 <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
     <div class="row">
         @foreach (var item in Model)
         {
+            @if (item.HasFeature1 == true) { color1 = "check"; status1 = "ion-ios-checkmark"; } else { color1 = "remove"; status1 = "ion-ios-close"; }
+            @if (item.HasFeature2 == true) { color2 = "check"; status2 = "ion-ios-checkmark"; } else { color2 = "remove"; status2 = "ion-ios-close"; }
+            @if (item.HasFeature3 == true) { color3 = "check"; status3 = "ion-ios-checkmark"; } else { color3 = "remove"; status3 = "ion-ios-close"; }
+            @if (item.HasFeature4 == true) { color4 = "check"; status4 = "ion-ios-checkmark"; } else { color4 = "remove"; status4 = "ion-ios-close"; }
+            @if (item.HasFeature5 == true) { color5 = "check"; status5 = "ion-ios-checkmark"; } else { color5 = "remove"; status5 = "ion-ios-close"; }
+            @if (item.HasFeature6 == true) { color6 = "check"; status6 = "ion-ios-checkmark"; } else { color6 = "remove"; status6 = "ion-ios-close"; }
+            @if (item.HasFeature7 == true) { color7 = "check"; status7 = "ion-ios-checkmark"; } else { color7 = "remove"; status7 = "ion-ios-close"; }
+            @if (item.HasFeature8 == true) { color8 = "check"; status8 = "ion-ios-checkmark"; } else { color8 = "remove"; status8 = "ion-ios-close"; }
+            @if (item.HasFeature9 == true) { color9 = "check"; status9 = "ion-ios-checkmark"; } else { color9 = "remove"; status9 = "ion-ios-close"; }
+            @if (item.HasFeature10 == true) { color10 = "check"; status10 = "ion-ios-checkmark"; } else { color10 = "remove"; status10 = "ion-ios-close"; }
+            @if (item.HasFeature11 == true) { color11 = "check"; status11 = "ion-ios-checkmark"; } else { color11 = "remove"; status11 = "ion-ios-close"; }
+            @if (item.HasFeature12 == true) { color12 = "check"; status12 = "ion-ios-checkmark"; } else { color12 = "remove"; status12 = "ion-ios-close"; }
+            @if (item.HasFeature13 == true) { color13 = "check"; status13 = "ion-ios-checkmark"; } else { color13 = "remove"; status13 = "ion-ios-close"; }
+            @if (item.HasFeature14 == true) { color14 = "check"; status14 = "ion-ios-checkmark"; } else { color14 = "remove"; status14 = "ion-ios-close"; }
+            @if (item.HasFeature15 == true) { color15 = "check"; status15 = "ion-ios-checkmark"; } else { color15 = "remove"; status15 = "ion-ios-close"; }
+
             <div class="col-md-4">
-
                 <ul class="features">
-                    @if (item.HasFeature == true) { color = "check"; status = "ion-ios-checkmark"; } else { color = "remove"; status = "ion-ios-close"; }
+                    <li class="@color1"><span class="@status1"></span>@item.FeatureName1</li>
+                </ul>
 
-                    <li class="@color"><span class="@status"></span>@item.FeatureName</li>
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color2"><span class="@status2"></span>@item.FeatureName2</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color3"><span class="@status3"></span>@item.FeatureName3</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color4"><span class="@status4"></span>@item.FeatureName4</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color5"><span class="@status5"></span>@item.FeatureName5</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color6"><span class="@status6"></span>@item.FeatureName6</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color7"><span class="@status7"></span>@item.FeatureName7</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color8"><span class="@status8"></span>@item.FeatureName8</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color9"><span class="@status9"></span>@item.FeatureName9</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color10"><span class="@status10"></span>@item.FeatureName10</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color11"><span class="@status11"></span>@item.FeatureName11</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color12"><span class="@status12"></span>@item.FeatureName12</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color13"><span class="@status13"></span>@item.FeatureName13</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color14"><span class="@status14"></span>@item.FeatureName14</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <ul class="features">
+                    <li class="@color15"><span class="@status15"></span>@item.FeatureName15</li>
                 </ul>
 
             </div>
