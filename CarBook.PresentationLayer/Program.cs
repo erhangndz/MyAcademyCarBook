@@ -29,17 +29,15 @@ builder.Services.AddScoped<IServiceService, ServiceService>();
 builder.Services.AddScoped<ICarDetailService, CarDetailService>();
 builder.Services.AddScoped<ICarFeatureService, CarFeatureService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
-builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Filters.Add(new AuthorizeFilter());
+}).AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     options.JsonSerializerOptions.WriteIndented = true;
 });
-builder.Services.AddAuthentication(options =>
-{
-    options.RequireAuthenticatedSignIn = true;
-    
-    
-});
+
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -47,10 +45,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = new PathString("/Login/Logout");
 });
 
-builder.Services.AddMvcCore(config =>
-{
-    config.Filters.Add(new AuthorizeFilter());
-});
+
 
 builder.Services.AddAutoMapper(typeof(Program));
 
