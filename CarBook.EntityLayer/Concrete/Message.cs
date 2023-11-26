@@ -13,5 +13,7 @@ namespace CarBook.EntityLayer.Concrete
         public string Email { get; set; }
         public string Subject { get; set; }
         public string MessageBody { get; set; }
+        public DateTime MessageDate { get; set; }
+
     }
 }

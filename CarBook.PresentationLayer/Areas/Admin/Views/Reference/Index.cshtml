@@ -1,11 +1,12 @@
-﻿@using CarBook.DtoLayer.DTOs.MessageDtos
-@model List<MessageDto>
+﻿@using CarBook.DtoLayer.DTOs.TestimonialDtos
+@model List<TestimonialDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
-<h3>Gelen Mesajlar</h3>
+
+<h3>Referanslar</h3>
 
 @{
     int count = 0;
@@ -15,10 +16,8 @@
         <tr>
             <th>#</th>
             <th>Ad Soyad</th>
-            <th>Email</th>
-            <th>Konu</th>
-            <th>Mesaj</th>
-            <th>Tarih-Zaman</th>
+            <th>Ünvan</th>
+            <th>Yorum</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -26,25 +25,23 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.Name</td>
-                <td>@item.Email</td>
-                <td>@item.Subject</td>
-                <td>@item.MessageBody</td>
-                <td>@item.MessageDate.ToString("g")</td>
+                <td><img src="@item.Image" style="height:50px;width:50px" /> @item.Name</td>
+                <td>@item.Title</td>
+                <td>@item.Comment.Substring(0,10) ...</td>
                 <td>
-                    <button onclick="deleteMessage(@item.MessageId)" type="submit" class="btn btn-outline-danger">Sil</button>
-                   
+                    <button onclick="deleteTestimonial(@item.TestimonialId)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdateTestimonial" asp-route-id="@item.TestimonialId" class="btn btn-outline-info">Düzenle</a>
 
                 </td>
             </tr>
         }
     </table>
     <br />
-   
+    <a asp-action="AddTestimonial" asp-controller="Reference" class="btn btn-outline-dark">Yeni Referans Ekle</a>
 </div>
 
 <script>
-    function deleteMessage(id) {
+    function deleteTestimonial(id) {
         Swal.fire({
 
             title: 'Silmek istediğinize emin misiniz?',
@@ -55,7 +52,7 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/Message/DeleteMessage?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Admin/Reference/DeleteTestimonial?id=" + id; // Yönlendirilecek URL'yi buraya yazın
             }
         });
     }

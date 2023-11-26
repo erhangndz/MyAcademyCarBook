@@ -10,11 +10,10 @@ namespace CarBook.EntityLayer.Concrete
 	{
         public int ReviewId { get; set; }
         public string Comment { get; set; }
-        public int Score { get; set; }
-        public DateTime CommentDate { get => DateTime.Now; }
+        public DateTime CommentDate { get; set; }
 		public int CarId { get; set; }
 		public Car Car { get; set; }
-		public int AppUserId { get; set; }
-		public AppUser AppUser { get; set; }
+		public string NameSurname { get; set; }
+
 	}
 }

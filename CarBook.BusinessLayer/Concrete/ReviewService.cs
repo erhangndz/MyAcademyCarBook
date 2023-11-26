@@ -14,17 +14,19 @@ namespace CarBook.BusinessLayer.Concrete
 	public class ReviewService : IReviewService
 	{
 		private readonly IGenericDal<Review> _reviewDal;
+		private readonly Context _context;
 
-		public ReviewService(IGenericDal<Review> reviewDal)
+        public ReviewService(IGenericDal<Review> reviewDal, Context context)
+        {
+            _reviewDal = reviewDal;
+            _context = context;
+        }
+
+        public List<Review> GetReviewsByCar(int id)
 		{
-			_reviewDal = reviewDal;
-		}
+			
 
-		public List<Review> GetReviewsByCar(int id)
-		{
-			using var context = new Context();
-
-			return context.Reviews.Include(x=>x.AppUser).Where(x=>x.CarId == id).ToList();
+			return _context.Reviews.Where(x=>x.CarId == id).ToList();
 		}
 
 		public void TDelete(int id)
@@ -39,7 +41,7 @@ namespace CarBook.BusinessLayer.Concrete
 
 		public List<Review> TGetList()
 		{
-			return _reviewDal.GetList();
+			return _context.Reviews.Include(x=>x.Car).ThenInclude(x=>x.Brand).ToList();
 		}
 
 		public void TInsert(Review entity)

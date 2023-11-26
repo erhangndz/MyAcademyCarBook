@@ -4,6 +4,7 @@ using CarBook.DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarBook.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231126072216_mig_mess_date")]
+    partial class mig_mess_date
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -402,6 +404,9 @@ namespace CarBook.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"), 1L, 1);
 
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
@@ -409,14 +414,12 @@ namespace CarBook.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CommentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NameSurname")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
                     b.HasKey("ReviewId");
+
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("CarId");
 
@@ -642,11 +645,19 @@ namespace CarBook.DataAccessLayer.Migrations
 
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Review", b =>
                 {
+                    b.HasOne("CarBook.EntityLayer.Concrete.AppUser", "AppUser")
+                        .WithMany("Reviews")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CarBook.EntityLayer.Concrete.Car", "Car")
                         .WithMany("Reviews")
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("AppUser");
 
                     b.Navigation("Car");
                 });
@@ -700,6 +711,11 @@ namespace CarBook.DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CarBook.EntityLayer.Concrete.AppUser", b =>
+                {
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("CarBook.EntityLayer.Concrete.Brand", b =>

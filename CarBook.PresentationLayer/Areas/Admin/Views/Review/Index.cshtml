@@ -1,11 +1,11 @@
-﻿@using CarBook.DtoLayer.DTOs.MessageDtos
-@model List<MessageDto>
+﻿@using CarBook.DtoLayer.DTOs.ReviewDtos
+@model List<ReviewDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <br />
-<h3>Gelen Mesajlar</h3>
+<h3>Araç Yorumları</h3>
 
 @{
     int count = 0;
@@ -15,10 +15,10 @@
         <tr>
             <th>#</th>
             <th>Ad Soyad</th>
-            <th>Email</th>
-            <th>Konu</th>
-            <th>Mesaj</th>
-            <th>Tarih-Zaman</th>
+            <th>Araba</th>
+           
+            <th>Yorum</th>
+            <th>Tarih</th>
             <th></th>
         </tr>
         @foreach (var item in Model)
@@ -26,25 +26,25 @@
             count++;
             <tr>
                 <th>@count</th>
-                <td>@item.Name</td>
-                <td>@item.Email</td>
-                <td>@item.Subject</td>
-                <td>@item.MessageBody</td>
-                <td>@item.MessageDate.ToString("g")</td>
+                <td>@item.NameSurname</td>
+                <td>@item.Car.Brand.BrandName @item.Car.CarName</td>
+               
+                <td>@item.Comment</td>
+                <td>@item.CommentDate.ToString("g")</td>
                 <td>
-                    <button onclick="deleteMessage(@item.MessageId)" type="submit" class="btn btn-outline-danger">Sil</button>
-                   
+                    <button onclick="deleteReview(@item.ReviewId)" type="submit" class="btn btn-outline-danger">Sil</button>
+                    <a asp-action="UpdateReview" asp-route-id="@item.ReviewId" class="btn btn-outline-info">Düzenle</a>
 
                 </td>
             </tr>
         }
     </table>
     <br />
-   
+  
 </div>
 
 <script>
-    function deleteMessage(id) {
+    function deleteReview(id) {
         Swal.fire({
 
             title: 'Silmek istediğinize emin misiniz?',
@@ -55,7 +55,7 @@
             cancelButtonText: 'İptal'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/Admin/Message/DeleteMessage?id=" + id; // Yönlendirilecek URL'yi buraya yazın
+                window.location.href = "/Admin/Contact/DeleteContact?id=" + id; // Yönlendirilecek URL'yi buraya yazın
             }
         });
     }

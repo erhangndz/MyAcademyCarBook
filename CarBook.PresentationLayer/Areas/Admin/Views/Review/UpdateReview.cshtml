@@ -1,0 +1,28 @@
+﻿@using CarBook.DtoLayer.DTOs.ReviewDtos
+@model ReviewDto
+@{
+    ViewData["Title"] = "UpdateReview";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Yorum Düzenleme </h3>
+
+<form method="post">
+    <input type="hidden" asp-for="ReviewId" />
+    <div class="form-floating mb-3">
+
+        <input type="text" asp-for="NameSurname" class="form-control" id="floatingInput" placeholder="Ad Soyad" required />
+        <label for="floatingInput">Ad Soyad</label>
+    </div>
+    <div class="form-floating mb-3">
+
+        <textarea type="text" asp-for="Comment" class="form-control" id="floatingInput" placeholder="Yorum" rows="5" required ></textarea>
+        <label for="floatingInput">Yorum</label>
+    </div>
+
+      <input type="hidden" asp-for="CarId" />
+      <input type="hidden" asp-for="CommentDate" />
+  
+
+    <button type="submit" class="btn btn-outline-dark">Kaydet</button>
+</form>

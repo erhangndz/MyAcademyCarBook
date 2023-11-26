@@ -1,0 +1,31 @@
+﻿<div class="card-footer py-3 border-0" style="background-color: white">
+    <div class="d-flex flex-start w-100">
+        <img class="rounded-circle shadow-1-strong me-3"
+             src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" alt="avatar" width="40"
+             height="40" />
+        <form method="post" asp-action="MakeComment" asp-controller="Cars">
+            <div class="form-outline w-100 ml-2">
+
+             
+                    <input type="hidden" value="@ViewBag.id" name="CarId" />
+                   
+                    <input type="text" name="NameSurname" class="form-control"  placeholder="Ad Soyad" required />
+                   
+               
+
+                <label class="form-label">Yorum</label>
+                <textarea class="form-control" name="Comment"  rows="4"
+                          style="background: #fff;" placeholder="Yorumunuzu buraya yazın..."></textarea>
+
+            </div>
+
+            <div class="float-end mt-2 pt-1">
+                <button type="submit" class="btn btn-primary btn-sm">Yorumu Ekle</button>
+
+            </div>
+        </form>
+       
+    </div>
+
+</div>
+

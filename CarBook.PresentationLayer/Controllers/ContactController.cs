@@ -31,6 +31,7 @@ namespace CarBook.PresentationLayer.Controllers
             {
                 
                 ViewBag.message = "Model is valid";
+                message.MessageDate = DateTime.Now;
                 _messageService.TInsert(message);
                 return NoContent();
             }

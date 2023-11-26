@@ -10,4 +10,8 @@
     <Folder Include="DTOs\PriceDtos\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarBook.EntityLayer\CarBook.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
