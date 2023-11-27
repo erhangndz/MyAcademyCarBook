@@ -29,6 +29,8 @@ Projedeki katmanlar şunlar:
 - Asp.Net Core (MVC) 6.0
 - Microsoft SQL Server
 - Entity Framework Code First
+- Area
+- Viewcomponents
 - Identity
 - AutoMapper kütüphanesi kullanılarak Dto sınıfları ve Entity sınıfları otomatik maplendi
 - Bootstrap
@@ -43,7 +45,10 @@ _**Proje İçeriği**_
 - Online Araba Kiralama Uygulaması
 - Dinamik CRUD işlemleri
 - Yönetim Paneli (Admin Paneli)
+- Admin Paneli farklı Bir Area kullanılarak oluşturuldu
+- Area Route Filterları eklenerek redirect işlemleri sorunsuz hale getirildi.
 - Identity Kütüphanesi ile Login Register İşlemleri
+- Proje uygulama seviyesinde koruma altına alındı ve Authentication işlemi yapılmadan Admin tarafına erişim yapılamıyor.
 
 _______________________________________
 
