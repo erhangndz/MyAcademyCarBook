@@ -4,9 +4,25 @@ Merhaba,
 
 Bu repo, M&Y Yazılım Eğitim Akademi Danışmanlık bünyesinde gerçekleştirdiğim Full Stack .Net Development eğitimi kapsamındaki projemi içermektedir.
 
+___________________________________________
+
   **Proje Detayları**
 
+Bu Proje bir araç kiralama web uygulaması .Net Core 6.0 ve N-Katmanlı Mimari ile oluşturuldu. 
 
+Projedeki katmanlar şunlar:
+
+- Entity Layer
+
+- DataAccess Layer
+
+- Business Layer
+
+- Dto Layer
+
+- Presentation(UI) Layer
+
+  _______________________________________
 
 **_Kullanılan Teknolojiler ve Uygulamaları_**
 
